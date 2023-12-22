@@ -1,0 +1,1 @@
+This is my version of cqf-ccc. I have pushed this bundle to my personal instance of HAPI FHIR JPA server. PlanDefinition/$apply works but cdshooks does not. 
