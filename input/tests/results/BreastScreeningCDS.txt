@@ -1,5 +1,5 @@
 Running tests.
-Data path: /workspaces/cqf-bcc/input/tests/cdshooks/ColorectalCancerScreeningCDS
+Data path: /workspaces/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS
 Terminology path: /workspaces/cqf-bcc/input/vocabulary/valueset
 Patient=Patient(id=should-not-screen-ccs)
 Is Recommendation Applicable=false
@@ -17,8 +17,8 @@ Get Card Indicator=warning
 
 
 The following errors were encountered during evaluation:
-[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/ColorectalCancerScreeningCDS/should-not-screen-ccs/should-not-screen-ccs-request.json: Invalid JSON content detected, missing required element: 'resourceType'
-[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/ColorectalCancerScreeningCDS/should-not-screen-ccs/should-not-screen-response.json: Invalid JSON content detected, missing required element: 'resourceType'
+[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen-ccs/should-not-screen-ccs-request.json: Invalid JSON content detected, missing required element: 'resourceType'
+[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen-ccs/should-not-screen-response.json: Invalid JSON content detected, missing required element: 'resourceType'
 [pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.engine.terminology.BundleTerminologyProvider - ValueSet http://hl7.org/fhir/us/core/ValueSet/birthsex is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
 [pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.engine.terminology.BundleTerminologyProvider - ValueSet http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
 [pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.engine.terminology.BundleTerminologyProvider - ValueSet http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
@@ -55,7 +55,7 @@ The following errors were encountered during evaluation:
 [pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.engine.terminology.BundleTerminologyProvider - ValueSet http://fhir.org/guides/cqf/common/ValueSet/inactive-condition is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
 [pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.engine.terminology.BundleTerminologyProvider - ValueSet http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
 [pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.engine.terminology.BundleTerminologyProvider - ValueSet http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-provider-roles is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
-[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/ColorectalCancerScreeningCDS/should-screen-ccs/should-screen-ccs-request.json: Invalid JSON content detected, missing required element: 'resourceType'
-[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/ColorectalCancerScreeningCDS/should-screen-ccs/should-screen-ccs-response.json: Invalid JSON content detected, missing required element: 'resourceType'
+[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen-ccs/should-screen-ccs-request.json: Invalid JSON content detected, missing required element: 'resourceType'
+[pool-1-thread-1] WARN org.opencds.cqf.cql.evaluator.fhir.DirectoryBundler - Error parsing resource /workspaces/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen-ccs/should-screen-ccs-response.json: Invalid JSON content detected, missing required element: 'resourceType'
 elapsed: -0.02 seconds
 

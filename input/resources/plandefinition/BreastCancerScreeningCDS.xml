@@ -1,9 +1,9 @@
 <PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../../../HL7/FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-	<id value="ColorectalCancerScreeningCDS"/>
+	<id value="BreastCancerScreeningCDS"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
 	</meta>
-	<name value="ColorectalCancerScreeningCDS"/>
+	<name value="BreastCancerScreeningCDS"/>
 	<title value="Colorectal Cancer Screening CDS"/>
 	<description value="Colorectal Cancer Screening CDS"/>
 	<type>
@@ -32,7 +32,7 @@
              url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
     <valueCode value="publishable"/>
   </extension>
-	<library value="http://fhir.org/guides/cqf/bcc/Library/ColorectalCancerScreeningCDS"/>
+	<library value="http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCDS"/>
 	<action>
 		<title value="Colorectal Cancer Screening"/>
 		<description value="The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."/>

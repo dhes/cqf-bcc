@@ -52,24 +52,24 @@ In this approach, a Clinical Reasoning service is used to provide a CDS Hooks en
 
 For delivery as a CDS Hooks service, we represent the recommendation as an Event-condition-action or ECA rule, using the following source artifacts:
 
-1. [CQL Logic](input/cql/ColorectalCancerScreeningCDS.cql) - The representation of the logic in Clinical Quality Language
-2. [FHIR Library](resources/library/ColorectalCancerScreeningCDS.json) - The FHIR Library that packages the CQL logic
-3. [FHIR PlanDefinition](resources/plandefinition/ColorectalCancerScreeningCDS.xml) - The FHIR PlanDefinition that represents the ECA rule
+1. [CQL Logic](input/cql/BreastCancerScreeningCDS.cql) - The representation of the logic in Clinical Quality Language
+2. [FHIR Library](resources/library/BreastCancerScreeningCDS.json) - The FHIR Library that packages the CQL logic
+3. [FHIR PlanDefinition](resources/plandefinition/BreastCancerScreeningCDS.xml) - The FHIR PlanDefinition that represents the ECA rule
 
 ## Unit Testing
 
-For unit testing, we define test cases in the `input/tests/cdshooks` directory. In the CQL editor, right-clicking and selecting Execute will run the tests in the tests folder with the same name as the library. For example, the ColorectalCancerScreeningCDS library has two tests:
+For unit testing, we define test cases in the `input/tests/cdshooks` directory. In the CQL editor, right-clicking and selecting Execute will run the tests in the tests folder with the same name as the library. For example, the BreastCancerScreeningCDS library has two tests:
 
 * should-not-screen-ccs
-    * [Patient](input/tests/cdshooks/ColorectalCancerScreeningCDS/patient-should-not-screen-ccs.json)
-    * [Encounter](input/tests/cdshooks/ColorectalCancerScreeningCDS/encounter-should-not-screen-ccs-4.json)
-    * [Procedure](input/tests/cdshooks/ColorectalCancerScreeningCDS/procedure-should-not-screen-ccs-1.json)
+    * [Patient](input/tests/cdshooks/BreastCancerScreeningCDS/patient-should-not-screen-ccs.json)
+    * [Encounter](input/tests/cdshooks/BreastCancerScreeningCDS/encounter-should-not-screen-ccs-4.json)
+    * [Procedure](input/tests/cdshooks/BreastCancerScreeningCDS/procedure-should-not-screen-ccs-1.json)
 * should-screen-ccs
-    * [Patient](input/tests/cdshooks/ColorectalCancerScreeningCDS/patient-should-screen-ccs.json)
-    * [Encounter](input/tests/cdshooks/ColorectalCancerScreeningCDS/encounter-should-screen-ccs-1.json)
-    * [Procedure](input/tests/cdshooks/ColorectalCancerScreeningCDS/procedure-should-screen-ccs-2.json)
+    * [Patient](input/tests/cdshooks/BreastCancerScreeningCDS/patient-should-screen-ccs.json)
+    * [Encounter](input/tests/cdshooks/BreastCancerScreeningCDS/encounter-should-screen-ccs-1.json)
+    * [Procedure](input/tests/cdshooks/BreastCancerScreeningCDS/procedure-should-screen-ccs-2.json)
 
-To run the tests, open the [ColorectalCancerScreeningCDS.cql](input/cql/ColorectalCancerScreeningCDS.cql) file, and in the CQL editor, right-click and select `Execute CQL`:
+To run the tests, open the [BreastCancerScreeningCDS.cql](input/cql/BreastCancerScreeningCDS.cql) file, and in the CQL editor, right-click and select `Execute CQL`:
 
 ![Execute CQL](images/ccs-cds-execute-cql.png)
 
@@ -122,9 +122,9 @@ The result of the publisher step will create the Artifact Library as a FHIR Impl
 
 ## Running the Decision Support
 
-To run the decision support, we load the [ColorectalCancerScreeningCDS](bundles/plandefinition/ColorectalCancerScreeningCDS-bundle.json) bundle, which contains all the resources for the recommendation (including the test case data) into the Clinical Reasoning server:
+To run the decision support, we load the [BreastCancerScreeningCDS](bundles/plandefinition/BreastCancerScreeningCDS-bundle.json) bundle, which contains all the resources for the recommendation (including the test case data) into the Clinical Reasoning server:
 
-    curl -d "@bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cds/fhir
+    curl -d "@bundles/plandefinition/BreastCancerScreeningCDS/BreastCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cds/fhir
 
 > NOTE: If you get an error about "HSEARCH" not working, that is a known issue with indexing in the HAPI FHIR Server. Just re-run the command and it should work the second time. We're working on it.
 
@@ -144,11 +144,11 @@ and then click Next. In the patient dialog that comes up, enter the Patient ID:
 
 and then click Next.
 
-To configure the sandbox to call the ColorectalCancerScreeningCDS service, click the settings gear again and select `Add CDS Service`. In the dialog that is displayed, enter the URL for the CDS Sandbox Discovery endpoint:
+To configure the sandbox to call the BreastCancerScreeningCDS service, click the settings gear again and select `Add CDS Service`. In the dialog that is displayed, enter the URL for the CDS Sandbox Discovery endpoint:
 
 https://cloud.alphora.com/sandbox/r4/cds/cds-services
 
-and then click Next. The CDS Hooks sandbox will then call that service with the should-screen-ccs patient, and return the recommendation. To see the request/response, click the Select a Service drop down in the CDS Developer panel and select ColorectalCancerScreeningCDS. This will display the actual CDS Hooks request that was sent, and the CDS Hooks response that came back.
+and then click Next. The CDS Hooks sandbox will then call that service with the should-screen-ccs patient, and return the recommendation. To see the request/response, click the Select a Service drop down in the CDS Developer panel and select BreastCancerScreeningCDS. This will display the actual CDS Hooks request that was sent, and the CDS Hooks response that came back.
 
 ## Running the Quality Measure
 
