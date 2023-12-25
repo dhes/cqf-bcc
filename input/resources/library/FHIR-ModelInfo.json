@@ -19,7 +19,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://fhir.org/guides/cqf/ccc/Library/FHIR-ModelInfo",
+  "url": "http://fhir.org/guides/cqf/bcc/Library/FHIR-ModelInfo",
   "version": "4.0.1",
   "name": "FHIR",
   "title": "FHIR Model Definition",

@@ -1,55 +1,55 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "should-screen-ccs-5",
+  "id": "should-not-screen-bcs-6",
   "contained": [
     {
       "resourceType": "CarePlan",
       "id": "expected",
       "instantiatesCanonical": [
-        "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS"
+        "http://fhir.org/guides/cqf/bcc/PlanDefinition/ColorectalCancerScreeningCDS"
       ],
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/should-screen-ccs"
+        "reference": "Patient/should-not-screen-ccs"
       },
       "activity": [
         {
           "reference": {
-            "reference": "#screening-recommended"
+            "reference": "#screening-not-recommended"
           }
         }
       ]
     },
     {
       "resourceType": "ServiceRequest",
-      "id": "screening-recommended",
+      "id": "screening-not-recommended",
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30"
+          "valueMarkdown": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Colorectal Cancer Screening Recommended"
+        "text": "Colorectal Cancer Screening Not Recommended"
       },
       "subject": {
-        "reference": "Patient/should-screen-ccs"
+        "reference": "Patient/should-not-screen-ccs"
       },
       "supportingInfo": [
         {
-          "reference": "Procedure/should-screen-ccs-2"
+          "reference": "Procedure/should-not-screen-ccs-1"
         }
       ]
     }
   ],
-  "moduleCanonical": "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS",
+  "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/ColorectalCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/should-screen-ccs"
+    "reference": "Patient/should-not-screen-ccs"
   },
   "result": {
     "reference": "#expected"

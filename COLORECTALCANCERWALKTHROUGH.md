@@ -154,11 +154,11 @@ and then click Next. The CDS Hooks sandbox will then call that service with the 
 
 To run the quality measure, post the quality measure bundle to the CQM sandbox with the following command:
 
-    curl -d "@bundles/measure/ColorectalCancerScreeningCQM/ColorectalCancerScreeningCQM-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cqm/fhir
+    curl -d "@bundles/measure/BreastCancerScreeningCQM/BreastCancerScreeningCQM-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cqm/fhir
 
 As with the decision support bundle, this bundle contains all the files necessary to evaluate the measure, including test data. To run the measure, use the [$evaluate-measure](https://hl7.org/fhir/measure-operation-evaluate-measure.html) operation:
 
-    curl 'https://cloud.alphora.com/sandbox/r4/cqm/fhir/Measure/ColorectalCancerScreeningCQM/$evaluate-measure?patient=denom-EXM130&periodStart=2022-01-01&periodEnd=2022-12-31' -H "Content-Type: application/json"
+    curl 'https://cloud.alphora.com/sandbox/r4/cqm/fhir/Measure/BreastCancerScreeningCQM/$evaluate-measure?patient=denom-EXM130&periodStart=2022-01-01&periodEnd=2022-12-31' -H "Content-Type: application/json"
 
 
 ## Updating the Content

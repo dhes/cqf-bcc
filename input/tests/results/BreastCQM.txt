@@ -1,6 +1,6 @@
 Running tests.
-Data path: /workspaces/cqf-ccc/input/tests/library/ColorectalCancerScreeningCQM
-Terminology path: /workspaces/cqf-ccc/input/vocabulary/valueset
+Data path: /workspaces/cqf-bcc/input/tests/library/BreastCancerScreeningCQM
+Terminology path: /workspaces/cqf-bcc/input/vocabulary/valueset
 Patient=Patient(id=denom-EXM130)
 Initial Population=true
 Denominator=true
@@ -54,8 +54,8 @@ The following errors were encountered during evaluation:
 elapsed: -0.078 seconds
 
 Running tests.
-Data path: /workspaces/cqf-ccc/input/tests/library/ColorectalCancerScreeningCQM
-Terminology path: /workspaces/cqf-ccc/input/vocabulary/valueset
+Data path: /workspaces/cqf-bcc/input/tests/library/BreastCancerScreeningCQM
+Terminology path: /workspaces/cqf-bcc/input/vocabulary/valueset
 Patient=Patient(id=denom-EXM130)
 Initial Population=true
 Denominator=true

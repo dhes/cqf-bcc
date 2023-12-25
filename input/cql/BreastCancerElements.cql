@@ -23,7 +23,7 @@ define AsOf:
   end of "Measurement Period"
 
 // TODO
-// this is from ccc
+// this is from bcc
 // it's not present in the official quality measures
 // it probably should be in the CDS (and the CQM)
 // define "Active Malignant Neoplasm":

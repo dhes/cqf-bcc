@@ -1,6 +1,6 @@
-// As in cqf-ccc I have begun with the CQL posted at
+// As in cqf-bcc I have begun with the CQL posted at
 // https://ecqi.healthit.gov/sites/default/files/ecqm/measures/CMS125v12.html,
-// then modified the code in a similar fashion as apparently done by Alphora in cqf-ccc.
+// then modified the code in a similar fashion as apparently done by Alphora in cqf-bcc.
 // The modification consist of simplifications and migration of some code snippets into
 // an elements library, here called BreastCancerElements.cql
 

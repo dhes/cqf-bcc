@@ -26,7 +26,7 @@ Codespaces is a feature of Github, so the first step is to sign up for a [Github
 
 ### Open the Codespace
 
-Once you have a github account, you will be able to open the Colorectal Cancer Concepts repository in a codespace. To do this, navigate to the [Colorectal Cancer Concepts repository](https://github.com/cqframework/cqf-ccc), click on the green `Code` dropdown, and click on the `New codespace` button:
+Once you have a github account, you will be able to open the Colorectal Cancer Concepts repository in a codespace. To do this, navigate to the [Colorectal Cancer Concepts repository](https://github.com/cqframework/cqf-bcc), click on the green `Code` dropdown, and click on the `New codespace` button:
 
 ![New codespace](images/new-codespace.png)
 

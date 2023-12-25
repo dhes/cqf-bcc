@@ -1,6 +1,6 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "ccs-cqm-denom-EXM130",
+  "id": "ccs-cqm-numer-EXM130",
   "contained": [
     {
       "resourceType": "Parameters",
@@ -16,7 +16,7 @@
         },
         {
           "name": "Numerator",
-          "valueBoolean": false
+          "valueBoolean": true
         },
         {
           "name": "Denominator Exclusion",
@@ -25,10 +25,10 @@
       ]
     }
   ],
-  "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM",
+  "moduleCanonical": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCQM",
   "status": "success",
   "subject": {
-    "reference": "Patient/denom-EXM130"
+    "reference": "Patient/numer-EXM130"
   },
   "outputParameters": {
     "reference": "#output"

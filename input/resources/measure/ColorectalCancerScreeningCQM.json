@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "ColorectalCancerScreeningCQM",
+  "id": "BreastCancerScreeningCQM",
   "meta": {
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
@@ -12,7 +12,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Fecal Occult Blood Test Result"
@@ -27,7 +27,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "AsOf"
@@ -42,7 +42,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Fecal Occult Blood Test Result Within 1 Year"
@@ -57,7 +57,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Fecal Immunochemical Test DNA Result"
@@ -72,7 +72,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Fecal Immunochemical Test DNA Result Within 3 Years"
@@ -87,7 +87,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "CT Colonography Performed"
@@ -102,7 +102,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "CT Colonography Performed Within 5 Years"
@@ -117,7 +117,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Flexible Sigmoidoscopy Performed"
@@ -132,7 +132,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Flexible Sigmoidoscopy Performed Within 5 Years"
@@ -147,7 +147,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Colonoscopy Performed"
@@ -162,7 +162,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Colonoscopy Performed Within 10 Years"
@@ -177,7 +177,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerElements"
+        "valueString": "BreastCancerElements"
       }, {
         "url": "name",
         "valueString": "Has Appropriate Colorectal Cancer Screening"
@@ -192,7 +192,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerScreeningCQM"
+        "valueString": "BreastCancerScreeningCQM"
       }, {
         "url": "name",
         "valueString": "Numerator"
@@ -207,7 +207,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerScreeningCQM"
+        "valueString": "BreastCancerScreeningCQM"
       }, {
         "url": "name",
         "valueString": "Initial Population"
@@ -222,7 +222,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "ColorectalCancerScreeningCQM"
+        "valueString": "BreastCancerScreeningCQM"
       }, {
         "url": "name",
         "valueString": "Denominator"
@@ -244,19 +244,19 @@
     "relatedArtifact": [ {
       "type": "depends-on",
       "display": "Library CCE",
-      "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerElements"
+      "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerElements"
     }, {
       "type": "depends-on",
       "display": "Library Cx",
-      "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts"
+      "resource": "http://fhir.org/guides/cqf/bcc/Library/ColorectalCancerConcepts"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
-      "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
+      "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Library FC",
-      "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1"
+      "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRCommon|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Value set Fecal Occult Blood Test (FOBT)",
@@ -363,9 +363,9 @@
       "reference": "#effective-data-requirements"
     }
   } ],
-  "url": "http://fhir.org/guides/cqf/ccc/Measure/ColorectalCancerScreeningCQM",
+  "url": "http://fhir.org/guides/cqf/bcc/Measure/BreastCancerScreeningCQM",
   "version": "0.1.0",
-  "name": "ColorectalCancerScreeningCQM",
+  "name": "BreastCancerScreeningCQM",
   "title": "Colorectal Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
@@ -378,7 +378,7 @@
     "start": "2022-01-01",
     "end": "2022-12-31"
   },
-  "library": [ "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM" ],
+  "library": [ "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCQM" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {

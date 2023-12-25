@@ -32,7 +32,7 @@
              url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
     <valueCode value="publishable"/>
   </extension>
-	<library value="http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS"/>
+	<library value="http://fhir.org/guides/cqf/bcc/Library/ColorectalCancerScreeningCDS"/>
 	<action>
 		<title value="Colorectal Cancer Screening"/>
 		<description value="The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."/>

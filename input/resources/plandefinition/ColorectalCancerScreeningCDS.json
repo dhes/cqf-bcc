@@ -66,7 +66,7 @@
 			}
 		],
 		"library": {
-			"_value": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS"
+			"_value": "http://fhir.org/guides/cqf/bcc/Library/ColorectalCancerScreeningCDS"
 		},
 		"action": {
 			"title": {
