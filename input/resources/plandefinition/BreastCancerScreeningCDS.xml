@@ -4,8 +4,8 @@
 		<profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
 	</meta>
 	<name value="BreastCancerScreeningCDS"/>
-	<title value="Colorectal Cancer Screening CDS"/>
-	<description value="Colorectal Cancer Screening CDS"/>
+	<title value="Breast Cancer Screening CDS"/>
+	<description value="Breast Cancer Screening CDS"/>
 	<type>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
@@ -34,12 +34,12 @@
   </extension>
 	<library value="http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCDS"/>
 	<action>
-		<title value="Colorectal Cancer Screening"/>
-		<description value="The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."/>
+		<title value="Breast Cancer Screening"/>
+		<description value="The U.S. Preventive Services Task Force (2016) recommends screening for Breast cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."/>
 		<documentation>
 				<type value="documentation"/>
-				<display value="U.S. Preventive Services Task Force Final Recommendation Statement Colorectal Cancer: Screening"/>
-				<url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+				<display value="U.S. Preventive Services Task Force Final Recommendation Statement Breast Cancer: Screening"/>
+				<url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"/>
 		</documentation>
 		<trigger>
 			<type value="named-event"/>

@@ -27,9 +27,9 @@ define AsOf:
 // it's not present in the official quality measures
 // it probably should be in the CDS (and the CQM)
 // define "Active Malignant Neoplasm":
-  // [Condition: Cx."Malignant Neoplasm of Colon"] ColorectalCancer
-  //   where ColorectalCancer.clinicalStatus in FC."Active Condition"
-  //     and ColorectalCancer.verificationStatus ~ FC."confirmed"
+  // [Condition: Cx."Malignant Neoplasm of Colon"] BreastCancer
+  //   where BreastCancer.clinicalStatus in FC."Active Condition"
+  //     and BreastCancer.verificationStatus ~ FC."confirmed"
 // consider something analagous here, like
 // define "Active Malignant Neoplasm":
   // [Condition: Cx."Malignant Neoplasm of Breast"] BreastCancer

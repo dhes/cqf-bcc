@@ -12,10 +12,10 @@
 			"_value": "BreastCancerScreeningCDS"
 		},
 		"title": {
-			"_value": "Colorectal Cancer Screening CDS"
+			"_value": "Breast Cancer Screening CDS"
 		},
 		"description": {
-			"_value": "Colorectal Cancer Screening CDS"
+			"_value": "Breast Cancer Screening CDS"
 		},
 		"type": {
 			"coding": {
@@ -70,20 +70,20 @@
 		},
 		"action": {
 			"title": {
-				"_value": "Colorectal Cancer Screening"
+				"_value": "Breast Cancer Screening"
 			},
 			"description": {
-				"_value": "The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."
+				"_value": "The U.S. Preventive Services Task Force (2016) recommends screening for breast cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."
 			},
 			"documentation": {
 				"type": {
 					"_value": "documentation"
 				},
 				"display": {
-					"_value": "U.S. Preventive Services Task Force Final Recommendation Statement Colorectal Cancer: Screening"
+					"_value": "U.S. Preventive Services Task Force Final Recommendation Statement Breast Cancer: Screening"
 				},
 				"url": {
-					"_value": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+					"_value": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"
 				}
 			},
 			"trigger": {

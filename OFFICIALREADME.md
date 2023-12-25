@@ -1,10 +1,10 @@
-# Colorectal Cancer Concepts
+# Breast Cancer Concepts
 
 An example FHIR artifact library that illustrates a CPG-on-FHIR approach to
-knowledge engineering applied to Colorectal Cancer.
+knowledge engineering applied to Breast Cancer.
 
 The concepts in this artifact library are extracted from the FHIR translation of the
-currently published Colorectal Cancer Screening electronic Clinical Quality Measure (eCQM),
+currently published Breast Cancer Screening electronic Clinical Quality Measure (eCQM),
 CMS-130. The concepts were abstracted and expressed using CPG-on-FHIR profiles and
 approaches, with the goal of illustrating how shareable libraries of clinical knowledge
 can be used in various domains including quality measurement, decision support, case-reporting,
@@ -26,7 +26,7 @@ Codespaces is a feature of Github, so the first step is to sign up for a [Github
 
 ### Open the Codespace
 
-Once you have a github account, you will be able to open the Colorectal Cancer Concepts repository in a codespace. To do this, navigate to the [Colorectal Cancer Concepts repository](https://github.com/cqframework/cqf-bcc), click on the green `Code` dropdown, and click on the `New codespace` button:
+Once you have a github account, you will be able to open the Breast Cancer Concepts repository in a codespace. To do this, navigate to the [Breast Cancer Concepts repository](https://github.com/cqframework/cqf-bcc), click on the green `Code` dropdown, and click on the `New codespace` button:
 
 ![New codespace](images/new-codespace.png)
 

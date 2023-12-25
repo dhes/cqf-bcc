@@ -104,7 +104,7 @@
       "system": "urn:oid:2.16.840.1.113883.6.285",
       "version": "2020",
       "code": "G0104",
-      "display": "Colorectal cancer screening; flexible sigmoidoscopy"
+      "display": "Breast cancer screening; flexible sigmoidoscopy"
     }, {
       "system": "http://snomed.info/sct",
       "version": "2019-09",

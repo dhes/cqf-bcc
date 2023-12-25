@@ -27,14 +27,14 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30"
+          "valueMarkdown": "Patient meets the inclusion criteria for appropriate Breast cancer screening, but has most recent Colonoscopy performed on 2009-12-30"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Colorectal Cancer Screening Recommended"
+        "text": "Breast Cancer Screening Recommended"
       },
       "subject": {
         "reference": "Patient/should-screen-ccs"

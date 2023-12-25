@@ -164,12 +164,12 @@
       "system": "urn:oid:2.16.840.1.113883.6.285",
       "version": "2020",
       "code": "G0105",
-      "display": "Colorectal cancer screening; colonoscopy on individual at high risk"
+      "display": "Breast cancer screening; colonoscopy on individual at high risk"
     }, {
       "system": "urn:oid:2.16.840.1.113883.6.285",
       "version": "2020",
       "code": "G0121",
-      "display": "Colorectal cancer screening; colonoscopy on individual not meeting criteria for high risk"
+      "display": "Breast cancer screening; colonoscopy on individual not meeting criteria for high risk"
     }, {
       "system": "http://snomed.info/sct",
       "version": "2019-09",

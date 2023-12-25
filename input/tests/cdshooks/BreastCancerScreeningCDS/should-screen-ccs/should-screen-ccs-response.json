@@ -1,12 +1,12 @@
 {
     "cards": [
         {
-            "summary": "Recommend appropriate colorectal cancer screening",
+            "summary": "Recommend appropriate breast cancer screening",
             "indicator": "asap",
-            "detail": "Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30.",
+            "detail": "Patient meets the inclusion criteria for appropriate breast cancer screening, but has most recent Colonoscopy performed on 2009-12-30.",
             "source": {
-                "label": "U.S. Preventive Services Task Force Final Recommendation Statement Colorectal Cancer: Screening",
-                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+                "label": "U.S. Preventive Services Task Force Final Recommendation Statement Breast Cancer: Screening",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"
             }
         }
     ]

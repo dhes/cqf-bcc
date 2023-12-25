@@ -1,15 +1,15 @@
-# Colorectal Cancer Concepts Walkthrough
+# Breast Cancer Concepts Walkthrough
 
-This walkthrough guides you through setting up, building, and modifying the Colorectal Cancer Concepts artifact library to illustrate how to author, distribute, and consume FHIR- and CQL-based knowledge artifacts for decision support and quality measurement related to Colorectal Cancer Screening.
+This walkthrough guides you through setting up, building, and modifying the Breast Cancer Concepts artifact library to illustrate how to author, distribute, and consume FHIR- and CQL-based knowledge artifacts for decision support and quality measurement related to Breast Cancer Screening.
 
 ## Overview
 
 The walkthrough is organized into the following sections:
 
-- [Colorectal Cancer Concepts Walkthrough](#colorectal-cancer-concepts-walkthrough)
+- [Breast Cancer Concepts Walkthrough](#Breast-cancer-concepts-walkthrough)
   - [Overview](#overview)
   - [Background](#background)
-  - [USPSTF Recommendation on Colorectal Cancer Screening](#uspstf-recommendation-on-colorectal-cancer-screening)
+  - [USPSTF Recommendation on Breast Cancer Screening](#uspstf-recommendation-on-Breast-cancer-screening)
   - [Approach](#approach)
   - [Artifact Source](#artifact-source)
   - [Unit Testing](#unit-testing)
@@ -21,17 +21,17 @@ The walkthrough is organized into the following sections:
 
 ## Background
 
-This walkthrough is an illustration of FHIR- and CQL-based knowledge artifacts that provide quality measurement and decision support implementations of the US Preventive Services Task Force Recommendation on Colorectal Cancer Screening.
+This walkthrough is an illustration of FHIR- and CQL-based knowledge artifacts that provide quality measurement and decision support implementations of the US Preventive Services Task Force Recommendation on Breast Cancer Screening.
 
 The artifacts are built using the [approach](https://hl7.org/fhir/uv/cpg/approach.html) and [methodology](https://hl7.org/fhir/uv/cpg/methodology.html) of the FHIR Clinical Guidelines IG (CPG). The walkthrough does not assume familiarity with this material, but interested readers can find more detailed information.
 
 Specifically, because the knowledge artifacts in this Artifact Library are FHIR canonical resources, the content here is built as a FHIR Implementation Guide, allowing knowledge authors to leverage the FHIR publishing toolchain to provide distribution and documentation of the artifacts.
 
-## USPSTF Recommendation on Colorectal Cancer Screening
+## USPSTF Recommendation on Breast Cancer Screening
 
-The artifacts in this walkthrough provide a platform-independent, standards-based representation of a decision support rule and quality measure for implementing the US Preventive Services Task Force recommendation on Colorectal Cancer Screening:
+The artifacts in this walkthrough provide a platform-independent, standards-based representation of a decision support rule and quality measure for implementing the US Preventive Services Task Force recommendation on Breast Cancer Screening:
 
-* The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation ([U.S. Preventive Services Task Force, 2016](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening-june-2016)).
+* The U.S. Preventive Services Task Force (2016) recommends screening for Breast cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation ([U.S. Preventive Services Task Force, 2016](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/Breast-cancer-screening-june-2016)).
 
 > NOTE: This recommendation was updated in May of 2021; the updates have not been applied to this artifact. It is an exercise for the reader to update the content per the 2021 recommendation.
 
@@ -82,16 +82,16 @@ Validate that the results are as expected:
 * should-not-screen-ccs
     * Patient=Patient(id=should-not-screen-ccs)
     * Is Recommendation Applicable=false
-    * Get Card Summary=Patient has appropriate colorectal cancer screening
+    * Get Card Summary=Patient has appropriate Breast cancer screening
     * Rationale=most recent Colonoscopy performed on 2015-01-01
-    * Get Card Detail=Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2015-01-01.
+    * Get Card Detail=Patient has appropriate Breast cancer screening: most recent Colonoscopy performed on 2015-01-01.
     * Get Card Indicator=info
 * should-screen-ccs
     * Patient=Patient(id=should-screen-ccs)
     * Is Recommendation Applicable=true
-    * Get Card Summary=Recommend appropriate colorectal cancer screening
+    * Get Card Summary=Recommend appropriate Breast cancer screening
     * Rationale=most recent Colonoscopy performed on 2011-12-30
-    * Get Card Detail=Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2011-12-30.
+    * Get Card Detail=Patient meets the inclusion criteria for appropriate Breast cancer screening, but has most recent Colonoscopy performed on 2011-12-30.
     * Get Card Indicator=warning
 
 > NOTE: The execution output includes several warnings from the terminology provider indicating that there is no expansion element so the provider is using a naive expansion, as well as some warnings about not being able to parse resources. These are expected in this configuration.

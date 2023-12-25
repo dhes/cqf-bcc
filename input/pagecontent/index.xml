@@ -4,12 +4,12 @@
   <h3>Introduction</h3>
 	<p>
     An example content implementation guide that illustrates a CPG-on-FHIR approach to
-    knowledge engineering applied to Colorectal Cancer.
+    knowledge engineering applied to Breast Cancer.
   </p>
   <p>
     The concepts in this implementation are extracted from the FHIR translation of the
-    currently published Colorectal Cancer Screening electronic Clinical Quality Measure (eCQM),
-    CMS-130. The concepts were abstracted and expressed using CPG-on-FHIR profiles and
+    currently published Breast Cancer Screening electronic Clinical Quality Measure (eCQM),
+    CMS-125. The concepts were abstracted and expressed using CPG-on-FHIR profiles and
     approaches, with the goal of illustrating how shareable libraries of clinical knowledge
     can be used in various domains including quality measurement, decision support, case-reporting,
     and others.

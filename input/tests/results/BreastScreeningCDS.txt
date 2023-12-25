@@ -3,16 +3,16 @@ Data path: /workspaces/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS
 Terminology path: /workspaces/cqf-bcc/input/vocabulary/valueset
 Patient=Patient(id=should-not-screen-ccs)
 Is Recommendation Applicable=false
-Get Card Summary=Patient has appropriate colorectal cancer screening
+Get Card Summary=Patient has appropriate Breast cancer screening
 Rationale=most recent Colonoscopy performed on 2015-01-01
-Get Card Detail=Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2015-01-01.
+Get Card Detail=Patient has appropriate Breast cancer screening: most recent Colonoscopy performed on 2015-01-01.
 Get Card Indicator=info
 
 Patient=Patient(id=should-screen-ccs)
 Is Recommendation Applicable=true
-Get Card Summary=Recommend appropriate colorectal cancer screening
+Get Card Summary=Recommend appropriate Breast cancer screening
 Rationale=most recent Colonoscopy performed on 2011-12-30
-Get Card Detail=Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2011-12-30.
+Get Card Detail=Patient meets the inclusion criteria for appropriate Breast cancer screening, but has most recent Colonoscopy performed on 2011-12-30.
 Get Card Indicator=warning
 
 

@@ -27,14 +27,14 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01"
+          "valueMarkdown": "Patient has appropriate Breast cancer screening: most recent Colonoscopy performed on 2012-01-01"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Colorectal Cancer Screening Not Recommended"
+        "text": "Breast Cancer Screening Not Recommended"
       },
       "subject": {
         "reference": "Patient/should-not-screen-ccs"
