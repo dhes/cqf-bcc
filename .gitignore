@@ -20,8 +20,8 @@ Thumbs.db
 #backupfiles#
 ################
 *.bak
-/bundles/measure/ColorectalCancerScreeningCQM/ColorectalCancerScreeningCQM-files
-/bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-files
+/bundles/measure/BreastCancerScreeningCQM/BreaseCancerScreeningCQM-files
+/bundles/plandefinition/BreastCancerScreeningCDS/BreastCancerScreeningCDS-files
 /input-cache
 
 #addedbydhes#

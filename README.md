@@ -1,1 +1,1 @@
-This is my version of cqf-ccc. I have pushed this bundle to my personal instance of HAPI FHIR JPA server. PlanDefinition/$apply works but cdshooks does not. 
+This is my cqf-bcc. It is modeled after cqf-bcc. I have started with the eCQI resources on Breast Cancer and worked from there. 
