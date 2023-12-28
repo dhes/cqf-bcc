@@ -5,7 +5,7 @@
 // an elements library, here called BreastCancerElements.cql
 
 // This quality measure does not appear to have an exclusion for a diagnosis of Malignant Neoplasm of breast
-// Evidently the reasoning is "If you haven't had a mastectomy you don't have breast cancer". 
+// Evidently the reasoning is "If you haven't had a mastectomy you don't have breast cancer".
 
 // This is the modified version of the CMS125 code
 
@@ -23,7 +23,7 @@ include BreastCancerElements called BCE
 // so it will run on the current implementations.
 
 parameter "Measurement Period" Interval<DateTime>
-  default Interval[Now() - 1 year, Now()]
+default Interval[Now() - 1 year, Now()]
 
 context Patient
 
