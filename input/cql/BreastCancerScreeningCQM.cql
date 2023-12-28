@@ -9,7 +9,7 @@
 
 // This is the modified version of the CMS125 code
 
-include BreastCancerScreeningCQM version '0.1.0'
+library BreastCancerScreeningCQM version '0.1.0'
 
 using FHIR version '4.0.1'
 
@@ -17,12 +17,11 @@ include FHIRHelpers version '4.0.1' called FHIRHelpers
 
 // Proposed change to CQL to support binding of parameters of included libraries:
 // https://jira.hl7.org/browse/FHIR-33126
-include BreasCancerElements called BCE
+include BreastCancerElements called BCE
 
-/*
-NOTE: Introduced Measurement Period as the parameter here for demonstration purposes
-so it will run on the current implementations.
-*/
+// NOTE: Introduced Measurement Period as the parameter here for demonstration purposes
+// so it will run on the current implementations.
+
 parameter "Measurement Period" Interval<DateTime>
   default Interval[Now() - 1 year, Now()]
 
