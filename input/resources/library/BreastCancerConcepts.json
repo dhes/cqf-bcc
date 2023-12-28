@@ -1,0 +1,66 @@
+{
+  "resourceType": "Library",
+  "id": "BreastCancerConcepts",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  } ],
+  "url": "http://fhir.org/guides/cqf/ccc/Library/BreastCancerConcepts",
+  "version": "0.1.0",
+  "name": "BreastCancerConcepts",
+  "title": "Breast Cancer Concepts",
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
+      "code": "logic-library"
+    } ]
+  },
+  "description": "Breast Cancer Concepts",
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "Value set Bilateral Mastectomy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005"
+  }, {
+    "type": "depends-on",
+    "display": "Value set History of bilateral mastectomy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Mammography",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018"
+  }, {
+    "type": "depends-on",
+    "display": "Value set ONC Administrative Sex",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Outpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Status Post Left Mastectomy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Status Post Right Mastectomy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1070"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Unilateral Mastectomy Left",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1133"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Unilateral Mastectomy Right",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1134"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Unilateral Mastectomy, Unspecified Laterality",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1071"
+  } ],
+  "content": [ {
+    "contentType": "text/cql",
+    "data": "bGlicmFyeSBCcmVhc3RDYW5jZXJDb25jZXB0cyB2ZXJzaW9uICcwLjEuMCcKCnZhbHVlc2V0ICJCaWxhdGVyYWwgTWFzdGVjdG9teSIgJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjE5OC4xMi4xMDA1Jwp2YWx1ZXNldCAiSGlzdG9yeSBvZiBiaWxhdGVyYWwgbWFzdGVjdG9teSIgJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjE5OC4xMi4xMDY4Jwp2YWx1ZXNldCAiTWFtbW9ncmFwaHkiICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDguMTIuMTAxOCcKdmFsdWVzZXQgIk9OQyBBZG1pbmlzdHJhdGl2ZSBTZXgiICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM3NjIuMS40LjEnCnZhbHVlc2V0ICJPdXRwYXRpZW50IiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwODcnCnZhbHVlc2V0ICJTdGF0dXMgUG9zdCBMZWZ0IE1hc3RlY3RvbXkiICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xOTguMTIuMTA2OScKdmFsdWVzZXQgIlN0YXR1cyBQb3N0IFJpZ2h0IE1hc3RlY3RvbXkiICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xOTguMTIuMTA3MCcKdmFsdWVzZXQgIlVuaWxhdGVyYWwgTWFzdGVjdG9teSBMZWZ0IiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTk4LjEyLjExMzMnCnZhbHVlc2V0ICJVbmlsYXRlcmFsIE1hc3RlY3RvbXkgUmlnaHQiICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xOTguMTIuMTEzNCcKdmFsdWVzZXQgIlVuaWxhdGVyYWwgTWFzdGVjdG9teSwgVW5zcGVjaWZpZWQgTGF0ZXJhbGl0eSIgJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjE5OC4xMi4xMDcxJwo="
+  }]
+}
