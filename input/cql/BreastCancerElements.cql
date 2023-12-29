@@ -19,12 +19,8 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Has Appropriate Breast Cancer Screening":
-exists ( ["Diagnostic Study, Performed": "Mammography"] Mammogram
-WHERE ( Global."NormalizeInterval" ( Mammogram.relevantDatetime, Mammogram.relevantPeriod ) ends during day of Interval["October 1 Two Years Prior to the Measurement Period",
-end of "Measurement Period"]
-)
-)
+define AsOf:
+  end of "Measurement Period"
 
 define "Bilateral Mastectomy Performed":
 ( ( exists ( "Right Mastectomy Diagnosis" )
@@ -40,8 +36,12 @@ define "Bilateral Mastectomy Performed":
 //  OR AIFrailLTCF."Is Age 66 or Older Living Long Term in a Nursing Home"
 //  OR PalliativeCare."Has Palliative Care in the Measurement Period"
 
-define AsOf:
-  end of "Measurement Period"
+define "Has Appropriate Breast Cancer Screening":
+exists ( ["Diagnostic Study, Performed": "Mammography"] Mammogram
+WHERE ( Global."NormalizeInterval" ( Mammogram.relevantDatetime, Mammogram.relevantPeriod ) ends during day of Interval["October 1 Two Years Prior to the Measurement Period",
+end of "Measurement Period"]
+)
+)
 
 // TODO (but not required)
 // this is from bcc
