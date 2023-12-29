@@ -27,8 +27,12 @@ default Interval[Now() - 1 year, Now()]
 
 context Patient
 
+/*
+NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
+*/
 define "Initial Population":
 exists ( ["Patient Characteristic Sex": "Female"] )
+//  or?: exists ( [ BCE."SDE Sex": "Female" ] )
  AND AgeInYearsAt(date from end of "Measurement Period"
 ) IN Interval[52, 74]
 //  AND exists AdultOutpatientEncounters."Qualifying Encounters"
@@ -36,27 +40,12 @@ exists ( ["Patient Characteristic Sex": "Female"] )
 define "Denominator":
 "Initial Population"
 
+define "Numerator":
+  BCE."Has Appropriate Breast Cancer Screening"
+
 define "Denominator Exclusions":
 // Hospice."Has Hospice Services"
-( ( exists ( "Right Mastectomy Diagnosis" )
- OR exists ( "Right Mastectomy Procedure" )
-)
- AND ( exists ( "Left Mastectomy Diagnosis" )
- OR exists ( "Left Mastectomy Procedure" )
-)
-)
- OR exists "Bilateral Mastectomy Diagnosis"
- OR exists "Bilateral Mastectomy Procedure"
-//  OR AIFrailLTCF."Is Age 66 or Older with Advanced Illness and Frailty"
-//  OR AIFrailLTCF."Is Age 66 or Older Living Long Term in a Nursing Home"
-//  OR PalliativeCare."Has Palliative Care in the Measurement Period"
-
-define "Numerator":
-exists ( ["Diagnostic Study, Performed": "Mammography"] Mammogram
-WHERE ( Global."NormalizeInterval" ( Mammogram.relevantDatetime, Mammogram.relevantPeriod ) ends during day of Interval["October 1 Two Years Prior to the Measurement Period",
-end of "Measurement Period"]
-)
-)
+  exists BCE."Bilateral Mastectomy Performed"
 
 // Numerator Exclusions
 // None
@@ -156,34 +145,6 @@ end of "Measurement Period"]
 //  AND OutpatientEncounter.relevantPeriod starts during day of Interval[start of "Measurement Period" - 1 year,
 // end of "Measurement Period"]
 
-define "Bilateral Mastectomy Diagnosis":
-["Diagnosis": "History of bilateral mastectomy"] BilateralMastectomyHistory
-WHERE BilateralMastectomyHistory.prevalencePeriod starts on OR before
-end of "Measurement Period"
-
-define "Bilateral Mastectomy Procedure":
-["Procedure, Performed": "Bilateral Mastectomy"] BilateralMastectomyPerformed
-WHERE Global."NormalizeInterval" ( BilateralMastectomyPerformed.relevantDatetime, BilateralMastectomyPerformed.relevantPeriod ) ends on OR before
-end of "Measurement Period"
-
-define "Denominator":
-"Initial Population"
-
-define "Denominator Exclusions":
-// Hospice."Has Hospice Services"
-( ( exists ( "Right Mastectomy Diagnosis" )
- OR exists ( "Right Mastectomy Procedure" )
-)
- AND ( exists ( "Left Mastectomy Diagnosis" )
- OR exists ( "Left Mastectomy Procedure" )
-)
-)
- OR exists "Bilateral Mastectomy Diagnosis"
- OR exists "Bilateral Mastectomy Procedure"
-//  OR AIFrailLTCF."Is Age 66 or Older with Advanced Illness and Frailty"
-//  OR AIFrailLTCF."Is Age 66 or Older Living Long Term in a Nursing Home"
-//  OR PalliativeCare."Has Palliative Care in the Measurement Period"
-
 // define "Hospice.Has Hospice Services":
 // exists ( ["Encounter, Performed": "Encounter Inpatient"] InpatientEncounter
 // WHERE ( InpatientEncounter.dischargeDisposition ~ "Discharge to home for hospice care (procedure)"
@@ -216,28 +177,6 @@ define "Denominator Exclusions":
 // ) IN Interval[52, 74]
 //  AND exists AdultOutpatientEncounters."Qualifying Encounters"
 
-define "Left Mastectomy Diagnosis":
-( ["Diagnosis": "Status Post Left Mastectomy"]
-UNION ( ["Diagnosis": "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
-WHERE UnilateralMastectomyDiagnosis.anatomicalLocationSite ~ "Left (qualifier value)"
-) ) LeftMastectomy
-WHERE LeftMastectomy.prevalencePeriod starts on OR before
-end of "Measurement Period"
-
-define "Left Mastectomy Procedure":
-["Procedure, Performed": "Unilateral Mastectomy Left"] UnilateralMastectomyLeftPerformed
-WHERE Global."NormalizeInterval" ( UnilateralMastectomyLeftPerformed.relevantDatetime, UnilateralMastectomyLeftPerformed.relevantPeriod ) ends on OR before
-end of "Measurement Period"
-
-define "Numerator":
-exists ( ["Diagnostic Study, Performed": "Mammography"] Mammogram
-WHERE ( Global."NormalizeInterval" ( Mammogram.relevantDatetime, Mammogram.relevantPeriod ) ends during day of Interval["October 1 Two Years Prior to the Measurement Period",
-end of "Measurement Period"]
-)
-)
-
-define "October 1 Two Years Prior to the Measurement Period":
-DateTime((year from start of "Measurement Period" - 2), 10, 1, 0, 0, 0, 0, 0)
 
 // define "PalliativeCare.Has Palliative Care IN the Measurement Period":
 // exists ( ["Assessment, Performed": "Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)"] PalliativeAssessment
@@ -253,18 +192,6 @@ DateTime((year from start of "Measurement Period" - 2), 10, 1, 0, 0, 0, 0, 0)
 // WHERE Global."NormalizeInterval" ( PalliativeIntervention.relevantDatetime, PalliativeIntervention.relevantPeriod ) overlaps day of "Measurement Period"
 // )
 
-define "Right Mastectomy Diagnosis":
-( ["Diagnosis": "Status Post Right Mastectomy"] RightMastectomyProcedure
-UNION ( ["Diagnosis": "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
-WHERE UnilateralMastectomyDiagnosis.anatomicalLocationSite ~ "Right (qualifier value)"
-) ) RightMastectomy
-WHERE RightMastectomy.prevalencePeriod starts on OR before
-end of "Measurement Period"
-
-define "Right Mastectomy Procedure":
-["Procedure, Performed": "Unilateral Mastectomy Right"] UnilateralMastectomyRightPerformed
-WHERE Global."NormalizeInterval" ( UnilateralMastectomyRightPerformed.relevantDatetime, UnilateralMastectomyRightPerformed.relevantPeriod ) ends on OR before
-end of "Measurement Period"
 
 // define "SDE Ethnicity":
 // ["Patient Characteristic Ethnicity": "Ethnicity"]
@@ -275,12 +202,8 @@ end of "Measurement Period"
 // define "SDE Race":
 // ["Patient Characteristic Race": "Race"]
 
-define "SDE Sex":
-["Patient Characteristic Sex": "ONC Administrative Sex"]
+
 
 // Functions
 
-define "Global.NormalizeInterval(pointInTime DateTime, period Interval<DateTime>)":
-if pointInTime is NOT null then Interval[pointInTime, pointInTime]
-else if period is NOT null then period
-else null AS Interval<DateTime>
+
