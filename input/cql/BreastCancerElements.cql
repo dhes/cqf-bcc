@@ -8,12 +8,12 @@ include FHIRCommon version '4.0.1' called FC
 include BreastCancerConcepts called Bx
 
 parameter "Measurement Period" Interval<DateTime>
-  default Interval[Now() - 1 year, Now()]
+default Interval[Now() - 1 year, Now()]
 
 context Patient
 
 define AsOf:
-  end of "Measurement Period"
+end of "Measurement Period"
 
 define "Global.NormalizeInterval(pointInTime DateTime, period Interval<DateTime>)":
 if pointInTime is NOT null then Interval[pointInTime, pointInTime]
@@ -21,18 +21,21 @@ else if period is NOT null then period
 else null AS Interval<DateTime>
 
 define "Left Mastectomy Procedure":
-["Procedure, Performed": "Unilateral Mastectomy Left"] UnilateralMastectomyLeftPerformed
-WHERE Global."NormalizeInterval" ( UnilateralMastectomyLeftPerformed.relevantDatetime, UnilateralMastectomyLeftPerformed.relevantPeriod ) ends on OR before
+[Procedure: "Unilateral Mastectomy Left"] UnilateralMastectomyLeftPerformed
+WHERE UnilateralMastectomyLeftPerformed.status='completed'
+ AND Global."NormalizeInterval" ( UnilateralMastectomyLeftPerformed.relevantDatetime, UnilateralMastectomyLeftPerformed.relevantPeriod ) ends on OR before
 end of "Measurement Period"
 
 define "Right Mastectomy Procedure":
-["Procedure, Performed": "Unilateral Mastectomy Right"] UnilateralMastectomyRightPerformed
-WHERE Global."NormalizeInterval" ( UnilateralMastectomyRightPerformed.relevantDatetime, UnilateralMastectomyRightPerformed.relevantPeriod ) ends on OR before
+[Procedure: "Unilateral Mastectomy Right"] UnilateralMastectomyRightPerformed
+WHERE UnilateralMastectomyRightPerformed.status='completed'
+ AND Global."NormalizeInterval" ( UnilateralMastectomyRightPerformed.relevantDatetime, UnilateralMastectomyRightPerformed.relevantPeriod ) ends on OR before
 end of "Measurement Period"
 
 define "Bilateral Mastectomy Procedure":
-["Procedure, Performed": "Bilateral Mastectomy"] BilateralMastectomyPerformed
-WHERE Global."NormalizeInterval" ( BilateralMastectomyPerformed.relevantDatetime, BilateralMastectomyPerformed.relevantPeriod ) ends on OR before
+[Procedure, : "Bilateral Mastectomy"] BilateralMastectomyPerformed
+WHERE BilateralMastectomyPerformed.status='completed'
+ AND Global."NormalizeInterval" ( BilateralMastectomyPerformed.relevantDatetime, BilateralMastectomyPerformed.relevantPeriod ) ends on OR before
 end of "Measurement Period"
 
 define "Left Mastectomy Diagnosis":
@@ -68,12 +71,12 @@ define "Bilateral Mastectomy Performed":
  OR exists "Bilateral Mastectomy Procedure"
 
 define "Mammography Performed":
-  ["Diagnostic Study, Performed": Bx."Mammography"] Mammogram
-    where Mammogram.status = 'completed'
+[Procedure: Bx."Mammography"] Mammogram
+WHERE Mammogram.status = 'completed'
 
 define "Mammography Performed Within 27 Months":
-  "Mammography Performed" P
-    where FC.ToInterval(P.performed) ends 27 months or less on or before AsOf
+"Mammography Performed" P
+WHERE FC.ToInterval(P.performed) ends 27 months OR less on OR before AsOf
 
 define "Has Appropriate Breast Cancer Screening":
- exists "Mammography Performed Within 27 Months"
+exists "Mammography Performed Within 27 Months"
