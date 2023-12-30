@@ -166,161 +166,63 @@
       "type": "dateTime"
     },
     {
-      "name": "Flexible Sigmoidoscopy Performed",
+      "name": "Left Mastectomy Procedure",
       "use": "out",
       "min": 0,
       "max": "*",
       "type": "Procedure"
     },
     {
-      "name": "Flexible Sigmoidoscopy from Patient History",
+      "name": "Right Mastectomy Procedure",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Procedure"
+    },
+    {
+      "name": "Bilateral Mastectomy Procedured",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Procedure"
+    },
+    {
+      "name": "Left Mastectomy Diagnosis",
       "use": "out",
       "min": 0,
       "max": "*",
       "type": "Condition"
     },
     {
-      "name": "CT Colonography Performed",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Procedure"
-    },
-    {
-      "name": "Total Colectomy Performed",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Procedure"
-    },
-    {
-      "name": "Total Colectomy from Patient History",
+      "name": "Right Mastectomy Diagnosis",
       "use": "out",
       "min": 0,
       "max": "*",
       "type": "Condition"
     },
     {
-      "name": "Fecal Occult Blood Test Result",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Observation"
-    },
-    {
-      "name": "Fecal Immunochemical Test DNA Result",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Observation"
-    },
-    {
-      "name": "Colonoscopy Performed",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Procedure"
-    },
-    {
-      "name": "Colonoscopy from Patient History",
+      "name": "Bilateral Mastectomy Diagnosis",
       "use": "out",
       "min": 0,
       "max": "*",
       "type": "Condition"
     },
     {
-      "name": "Active Malignant Neoplasm",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Condition"
-    },
-    {
-      "name": "Fecal Occult Blood Test Result Within 1 Year",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Observation"
-    },
-    {
-      "name": "Most Recent Fecal Occult Blood Test Result",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Observation"
-    },
-    {
-      "name": "Fecal Immunochemical Test DNA Result Within 3 Years",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Observation"
-    },
-    {
-      "name": "Most Recent Fecal Immunochemical Test DNA Result",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Observation"
-    },
-    {
-      "name": "Flexible Sigmoidoscopy Performed Within 5 Years",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Procedure"
-    },
-    {
-      "name": "Most Recent Flexible Sigmoidoscopy Performed",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Procedure"
-    },
-    {
-      "name": "CT Colonography Performed Within 5 Years",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Procedure"
-    },
-    {
-      "name": "Most Recent CT Colonography Performed",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Procedure"
-    },
-    {
-      "name": "Colonoscopy Performed Within 10 Years",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Procedure"
-    },
-    {
-      "name": "Most Recent Colonoscopy Performed",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Procedure"
-    },
-    {
-      "name": "Has Active Malignant Neoplasm",
+      "name": "Bilateral Mastectomy Performed",
       "use": "out",
       "min": 0,
       "max": "1",
       "type": "boolean"
     },
     {
-      "name": "Has Total Colectomy Performed",
+      "name": "Mammography Performed",
       "use": "out",
       "min": 0,
       "max": "1",
       "type": "boolean"
     },
     {
-      "name": "Has History of Total Colectomy",
+      "name": "Mammography Performed Within 27 Months",
       "use": "out",
       "min": 0,
       "max": "1",
@@ -328,13 +230,6 @@
     },
     {
       "name": "Has Appropriate Breast Cancer Screening",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "boolean"
-    },
-    {
-      "name": "Has History of Appropriate Colorectal Cancer Screening",
       "use": "out",
       "min": 0,
       "max": "1",
