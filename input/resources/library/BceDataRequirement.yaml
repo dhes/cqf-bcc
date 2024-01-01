@@ -1,5 +1,6 @@
 ---
 dataRequirement:
+# Patient
 - type: Patient
   profile:
   - http://hl7.org/fhir/StructureDefinition/Patient
@@ -13,95 +14,72 @@ dataRequirement:
   codeFilter:
   - path: code
     valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005
+# "History of bilateral mastectomy"
+- type: Condition
+  profile:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+  mustSupport:
+  - code
+  - clinicalStatus
+  - verificationStatus
+  codeFilter:
+  - path: code
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068
+# "Unilateral Mastectomy Left"
 - type: Procedure
   profile:
   - http://hl7.org/fhir/StructureDefinition/Procedure
   mustSupport:
   - code
   - status
-  - performed
   codeFilter:
   - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1133
+# "Left Mastectomy Diagnosis" # this one includes two codeFilters
+- type: Condition
+  profile:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+  mustSupport:
+  - code
+  - anatomicalLocationSite
+  - clinicalStatus
+  - verificationStatus
+  codeFilter:
+  - path: code
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069
+  - path: code
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1071
+# "Unilateral Mastectomy Right"
 - type: Procedure
   profile:
   - http://hl7.org/fhir/StructureDefinition/Procedure
   mustSupport:
   - code
   - status
-  - performed
   codeFilter:
   - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1134
+# "Right Mastectomy Diagnosis" # this one includes two codeFilters
+- type: Condition
+  profile:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+  mustSupport:
+  - code
+  - anatomicalLocationSite
+  - clinicalStatus
+  - verificationStatus
+  codeFilter:
+  - path: code
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1070
+  - path: code
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1071
+# Mammography
 - type: Procedure
   profile:
   - http://hl7.org/fhir/StructureDefinition/Procedure
   mustSupport:
   - code
   - status
-  - performed
   codeFilter:
   - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020
-- type: Condition
-  profile:
-  - http://hl7.org/fhir/StructureDefinition/Condition
-  mustSupport:
-  - code
-  - clinicalStatus
-  - verificationStatus
-  codeFilter:
-  - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001
-- type: Condition
-  profile:
-  - http://hl7.org/fhir/StructureDefinition/Condition
-  mustSupport:
-  - code
-  - clinicalStatus
-  - verificationStatus
-  codeFilter:
-  - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019
-- type: Condition
-  profile:
-  - http://hl7.org/fhir/StructureDefinition/Condition
-  mustSupport:
-  - code
-  - clinicalStatus
-  - verificationStatus
-  codeFilter:
-  - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010
-- type: Condition
-  profile:
-  - http://hl7.org/fhir/StructureDefinition/Condition
-  mustSupport:
-  - code
-  - clinicalStatus
-  - verificationStatus
-  codeFilter:
-  - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020
-- type: Observation
-  profile:
-  - http://hl7.org/fhir/StructureDefinition/Observation
-  mustSupport:
-  - code
-  - status
-  - value
-  - issued
-  codeFilter:
-  - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011
-- type: Observation
-  profile:
-  - http://hl7.org/fhir/StructureDefinition/Observation
-  mustSupport:
-  - code
-  - status
-  - value
-  - issued
-  codeFilter:
-  - path: code
-    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039
+    valueSet: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018

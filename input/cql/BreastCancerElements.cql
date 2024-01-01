@@ -20,44 +20,50 @@ if pointInTime is NOT null then Interval[pointInTime, pointInTime]
 else if period is NOT null then period
 else null AS Interval<DateTime>
 
+define "Bilateral Mastectomy Procedure":
+[Procedure : "Bilateral Mastectomy"] BilateralMastectomyPerformed // the procedure
+WHERE BilateralMastectomyPerformed.status='completed'
+//  AND Global."NormalizeInterval" ( BilateralMastectomyPerformed.relevantDatetime, BilateralMastectomyPerformed.relevantPeriod ) ends on OR before
+// end of "Measurement Period"
+
+define "Bilateral Mastectomy Diagnosis":
+[Condition: "History of bilateral mastectomy"] BilateralMastectomyHistory // the condition
+WHERE BilateralMastectomyHistory.clinicalStatus IN FC."Active Condition"
+ AND BilateralMastectomyHistory.verificationStatus ~ FC."confirmed"
+// WHERE BilateralMastectomyHistory.prevalencePeriod starts on OR before
+// end of "Measurement Period"
+
 define "Left Mastectomy Procedure":
-[Procedure: "Unilateral Mastectomy Left"] UnilateralMastectomyLeftPerformed
+[Procedure: "Unilateral Mastectomy Left"] UnilateralMastectomyLeftPerformed // the procedure
 WHERE UnilateralMastectomyLeftPerformed.status='completed'
- AND Global."NormalizeInterval" ( UnilateralMastectomyLeftPerformed.relevantDatetime, UnilateralMastectomyLeftPerformed.relevantPeriod ) ends on OR before
-end of "Measurement Period"
+//  AND Global."NormalizeInterval" ( UnilateralMastectomyLeftPerformed.relevantDatetime, UnilateralMastectomyLeftPerformed.relevantPeriod ) ends on OR before
+// end of "Measurement Period"
+
+define "Left Mastectomy Diagnosis":
+( [Condition: "Left Mastectomy Diagnosis"]
+UNION ( [Condition: "Unilateral Mastectomy, Unspecified Laterality, Diagnosis"] UnilateralMastectomyDiagnosis
+WHERE UnilateralMastectomyDiagnosis.anatomicalLocationSite ~ "Left (qualifier value)"
+) ) LeftMastectomy
+WHERE LeftMastectomy.clinicalStatus IN FC."Active Condition"
+ AND LeftMastectomy.verificationStatus ~ FC."confirmed"
+// WHERE LeftMastectomy.prevalencePeriod starts on OR before
+// end of "Measurement Period"
 
 define "Right Mastectomy Procedure":
 [Procedure: "Unilateral Mastectomy Right"] UnilateralMastectomyRightPerformed
 WHERE UnilateralMastectomyRightPerformed.status='completed'
- AND Global."NormalizeInterval" ( UnilateralMastectomyRightPerformed.relevantDatetime, UnilateralMastectomyRightPerformed.relevantPeriod ) ends on OR before
-end of "Measurement Period"
-
-define "Bilateral Mastectomy Procedure":
-[Procedure, : "Bilateral Mastectomy"] BilateralMastectomyPerformed
-WHERE BilateralMastectomyPerformed.status='completed'
- AND Global."NormalizeInterval" ( BilateralMastectomyPerformed.relevantDatetime, BilateralMastectomyPerformed.relevantPeriod ) ends on OR before
-end of "Measurement Period"
-
-define "Left Mastectomy Diagnosis":
-( ["Diagnosis": "Status Post Left Mastectomy"]
-UNION ( ["Diagnosis": "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
-WHERE UnilateralMastectomyDiagnosis.anatomicalLocationSite ~ "Left (qualifier value)"
-) ) LeftMastectomy
-WHERE LeftMastectomy.prevalencePeriod starts on OR before
-end of "Measurement Period"
+//  AND Global."NormalizeInterval" ( UnilateralMastectomyRightPerformed.relevantDatetime, UnilateralMastectomyRightPerformed.relevantPeriod ) ends on OR before
+// end of "Measurement Period"
 
 define "Right Mastectomy Diagnosis":
-( ["Diagnosis": "Status Post Right Mastectomy"] RightMastectomyProcedure
-UNION ( ["Diagnosis": "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
+( [Condition: "Right Mastectomy Diagnosis"] RightMastectomyProcedure
+UNION ( [Condition: "Unilateral Mastectomy, Unspecified Laterality, Diagnosis"] UnilateralMastectomyDiagnosis
 WHERE UnilateralMastectomyDiagnosis.anatomicalLocationSite ~ "Right (qualifier value)"
 ) ) RightMastectomy
-WHERE RightMastectomy.prevalencePeriod starts on OR before
-end of "Measurement Period"
-
-define "Bilateral Mastectomy Diagnosis":
-["Diagnosis": "History of bilateral mastectomy"] BilateralMastectomyHistory
-WHERE BilateralMastectomyHistory.prevalencePeriod starts on OR before
-end of "Measurement Period"
+WHERE RightMastectomy.clinicalStatus IN FC."Active Condition"
+ AND RightMastectomy.verificationStatus ~ FC."confirmed"
+// WHERE RightMastectomy.prevalencePeriod starts on OR before
+// end of "Measurement Period"
 
 define "Bilateral Mastectomy Performed":
 ( ( exists ( "Right Mastectomy Diagnosis" )
