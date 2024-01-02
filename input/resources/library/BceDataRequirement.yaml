@@ -1,3 +1,4 @@
+# This was composed by hand in yaml. There is a corresponding file name BceDataRequirement.json that is created by converting this file online at https://yml2json.com/
 ---
 dataRequirement:
 # Patient
