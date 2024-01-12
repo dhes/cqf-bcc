@@ -23,18 +23,20 @@ include BreastCancerElements called BCE
 // so it will run on the current implementations.
 
 parameter "Measurement Period" Interval<DateTime>
-default Interval[Now() - 1 year, Now()]
+  default Interval[Now() - 1 year, Now()]
 
 context Patient
 
-/*
-NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
-*/
+// NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
+
 define "Initial Population":
-exists ( ["Patient Characteristic Sex": "Female"] )
+// exists ( ["Patient Characteristic Sex": "Female"] )
+  BCE."Is female"
 //  or?: exists ( [ BCE."SDE Sex": "Female" ] )
- AND AgeInYearsAt(date from end of "Measurement Period"
-) IN Interval[52, 74]
+//  AND AgeInYearsAt(date from end of "Measurement Period"
+// ) IN Interval[52, 74]
+// AND AgeInYearsAt("Measurement Period".end) IN Interval[52, 74]
+  and AgeInYearsAt(start of "Measurement Period") between 52 and 75
 //  AND exists AdultOutpatientEncounters."Qualifying Encounters"
 
 define "Denominator":
@@ -45,7 +47,7 @@ define "Numerator":
 
 define "Denominator Exclusions":
 // Hospice."Has Hospice Services"
-  exists BCE."Bilateral Mastectomy Performed"
+  BCE."Bilateral Mastectomy Performed"
 
 // Numerator Exclusions
 // None

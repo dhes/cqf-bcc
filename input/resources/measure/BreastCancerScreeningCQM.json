@@ -15,10 +15,10 @@
         "valueString": "BreastCancerElements"
       }, {
         "url": "name",
-        "valueString": "Fecal Occult Blood Test Result"
+        "valueString": "Mammography Performed"
       }, {
         "url": "statement",
-        "valueString": "define \"Fecal Occult Blood Test Result\":\n  [Observation: Cx.\"Fecal Occult Blood Test (FOBT)\"] FecalOccultResult\n\t\twhere FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FecalOccultResult.value is not null"
+        "valueString": "define \"Mammography Performed\":\n[Procedure: Bx.\"Mammography\"] Mammogram\nwhere Mammogram.status = 'completed'"
       }, {
         "url": "displaySequence",
         "valueInteger": 0
@@ -45,10 +45,10 @@
         "valueString": "BreastCancerElements"
       }, {
         "url": "name",
-        "valueString": "Fecal Occult Blood Test Result Within 1 Year"
+        "valueString": "Mammography Performed Within 27 Months"
       }, {
         "url": "statement",
-        "valueString": "define \"Fecal Occult Blood Test Result Within 1 Year\":\n  \"Fecal Occult Blood Test Result\" R\n    where R.issued 1 year or less on or before AsOf"
+        "valueString": "define \"Mammography Performed Within 27 Months\":\n\"Mammography Performed\" P\nwhere FC.ToInterval(P.performed) ends 27 months or less on or before AsOf"
       }, {
         "url": "displaySequence",
         "valueInteger": 2
@@ -60,133 +60,13 @@
         "valueString": "BreastCancerElements"
       }, {
         "url": "name",
-        "valueString": "Fecal Immunochemical Test DNA Result"
-      }, {
-        "url": "statement",
-        "valueString": "define \"Fecal Immunochemical Test DNA Result\":\n  [Observation: Cx.\"FIT DNA\"] FitDNA\n\t\twhere FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FitDNA.value is not null"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 3
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "Fecal Immunochemical Test DNA Result Within 3 Years"
-      }, {
-        "url": "statement",
-        "valueString": "define \"Fecal Immunochemical Test DNA Result Within 3 Years\":\n  \"Fecal Immunochemical Test DNA Result\" R\n    where R.issued 3 years or less on or before AsOf"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 4
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "CT Colonography Performed"
-      }, {
-        "url": "statement",
-        "valueString": "define \"CT Colonography Performed\":\n  [Procedure: Cx.\"CT Colonography\"] Colonography\n    where Colonography.status = 'completed'"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 5
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "CT Colonography Performed Within 5 Years"
-      }, {
-        "url": "statement",
-        "valueString": "define \"CT Colonography Performed Within 5 Years\":\n  \"CT Colonography Performed\" P\n    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 6
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "Flexible Sigmoidoscopy Performed"
-      }, {
-        "url": "statement",
-        "valueString": "/*\n@description: Completed Flexible Sigmoidoscopy Procedures\n*/\ndefine \"Flexible Sigmoidoscopy Performed\":\n  [Procedure: Cx.\"Flexible Sigmoidoscopy\"] FlexibleSigmoidoscopy\n\t\twhere FlexibleSigmoidoscopy.status = 'completed'"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 7
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "Flexible Sigmoidoscopy Performed Within 5 Years"
-      }, {
-        "url": "statement",
-        "valueString": "define \"Flexible Sigmoidoscopy Performed Within 5 Years\":\n  \"Flexible Sigmoidoscopy Performed\" P\n    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 8
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "Colonoscopy Performed"
-      }, {
-        "url": "statement",
-        "valueString": "define \"Colonoscopy Performed\":\n  [Procedure: Cx.\"Colonoscopy\"] Colonoscopy\n\t\twhere Colonoscopy.status = 'completed'"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 9
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
-        "valueString": "Colonoscopy Performed Within 10 Years"
-      }, {
-        "url": "statement",
-        "valueString": "define \"Colonoscopy Performed Within 10 Years\":\n  \"Colonoscopy Performed\" P\n    where FC.ToInterval(P.performed) ends 10 years or less on or before AsOf"
-      }, {
-        "url": "displaySequence",
-        "valueInteger": 10
-      } ]
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-      "extension": [ {
-        "url": "libraryName",
-        "valueString": "BreastCancerElements"
-      }, {
-        "url": "name",
         "valueString": "Has Appropriate Breast Cancer Screening"
       }, {
         "url": "statement",
-        "valueString": "/*\n  FOBT within 1 year\n    or FIT DNA within 3 years\n    or CT Colonography within 5 years\n    or Flexible Sigmoidoscopy within 5 years\n    or Colonoscopy within 10 years\n*/\ndefine \"Has Appropriate Breast Cancer Screening\":\n  exists \"Fecal Occult Blood Test Result Within 1 Year\"\n    or exists \"Fecal Immunochemical Test DNA Result Within 3 Years\"\n    or exists \"CT Colonography Performed Within 5 Years\"\n    or exists \"Flexible Sigmoidoscopy Performed Within 5 Years\"\n    or exists \"Colonoscopy Performed Within 10 Years\""
+        "valueString": "define \"Has Appropriate Breast Cancer Screening\":\nexists \"Mammography Performed Within 27 Months\""
       }, {
         "url": "displaySequence",
-        "valueInteger": 11
+        "valueInteger": 3
       } ]
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -198,10 +78,25 @@
         "valueString": "Numerator"
       }, {
         "url": "statement",
-        "valueString": "define \"Numerator\":\n  CCE.\"Has Appropriate Breast Cancer Screening\""
+        "valueString": "define \"Numerator\":\n  BCE.\"Has Appropriate Breast Cancer Screening\""
       }, {
         "url": "displaySequence",
-        "valueInteger": 12
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "BreastCancerElements"
+      }, {
+        "url": "name",
+        "valueString": "Is female"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Is female\":\n  Patient.gender in Bx.\"Female Gender\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
       } ]
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -213,10 +108,10 @@
         "valueString": "Initial Population"
       }, {
         "url": "statement",
-        "valueString": "/*\nNOTE: Removed qualifying encounters criteria to simplify for demonstration purposes\n*/\ndefine \"Initial Population\":\n  AgeInYearsAt(start of \"Measurement Period\") in Interval[50, 75]"
+        "valueString": "// NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes\ndefine \"Initial Population\":\n// exists ( [\"Patient Characteristic Sex\": \"Female\"] )\n  BCE.\"Is female\"\n//  or?: exists ( [ BCE.\"SDE Sex\": \"Female\" ] )\n//  AND AgeInYearsAt(date from end of \"Measurement Period\"\n// ) IN Interval[52, 74]\n// AND AgeInYearsAt(\"Measurement Period\".end) IN Interval[52, 74]\n  and AgeInYearsAt(start of \"Measurement Period\") between 52 and 75"
       }, {
         "url": "displaySequence",
-        "valueInteger": 13
+        "valueInteger": 6
       } ]
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -228,10 +123,10 @@
         "valueString": "Denominator"
       }, {
         "url": "statement",
-        "valueString": "define \"Denominator\":\n  \"Initial Population\""
+        "valueString": "//  AND exists AdultOutpatientEncounters.\"Qualifying Encounters\"\ndefine \"Denominator\":\n\"Initial Population\""
       }, {
         "url": "displaySequence",
-        "valueInteger": 14
+        "valueInteger": 7
       } ]
     } ],
     "status": "active",
@@ -243,11 +138,11 @@
     },
     "relatedArtifact": [ {
       "type": "depends-on",
-      "display": "Library CCE",
+      "display": "Library BCE",
       "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerElements"
     }, {
       "type": "depends-on",
-      "display": "Library Cx",
+      "display": "Library Bx",
       "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerConcepts"
     }, {
       "type": "depends-on",
@@ -259,24 +154,12 @@
       "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRCommon|4.0.1"
     }, {
       "type": "depends-on",
-      "display": "Value set Fecal Occult Blood Test (FOBT)",
-      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
+      "display": "Value set Mammography",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018"
     }, {
       "type": "depends-on",
-      "display": "Value set FIT DNA",
-      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
-    }, {
-      "type": "depends-on",
-      "display": "Value set CT Colonography",
-      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Flexible Sigmoidoscopy",
-      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Colonoscopy",
-      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
+      "display": "Value set Female Gender",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2"
     } ],
     "parameter": [ {
       "name": "Measurement Period",
@@ -304,44 +187,12 @@
       "type": "boolean"
     } ],
     "dataRequirement": [ {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "status", "value", "issued" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "status", "value", "issued" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
-      } ]
-    }, {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
       "mustSupport": [ "code", "status", "performed" ],
       "codeFilter": [ {
         "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"
-      } ]
-    }, {
-      "type": "Procedure",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-      "mustSupport": [ "code", "status", "performed" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
-      } ]
-    }, {
-      "type": "Procedure",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-      "mustSupport": [ "code", "status", "performed" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018"
       } ]
     }, {
       "type": "Patient",
@@ -369,7 +220,7 @@
   "title": "Breast Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
-  "date": "2023-12-20T23:48:38-06:00",
+  "date": "2024-01-12T15:43:54-06:00",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for breast cancer",
   "purpose": "Illustration",

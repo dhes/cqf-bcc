@@ -23,7 +23,8 @@ define "Is Recommendation Applicable":
   AgeInYearsAt(start of "Measurement Period") between 50 and 75
     and not BCE."Has Appropriate Breast Cancer Screening"
     // and not BCE."Has Active Malignant Neoplasm"
-    and not exists (BCE."Bilateral Mastectomy Performed")
+    and not (BCE."Bilateral Mastectomy Performed")
+    and BCE."Is female"
 
 define "Get Card Summary":
   if "Is Recommendation Applicable" then
@@ -39,11 +40,7 @@ define "Get Card Detail":
 
 define "Rationale":
   Coalesce({
-    'most recent mammogram performed on ' + ToString(date from CCE."Most Recent Mammogram".performed),
-    // 'most recent FIT DNA issued on ' + ToString(date from CCE."Most Recent Fecal Immunochemical Test DNA Result".issued),
-    // 'most recent CT Colonography performed on ' + ToString(date from start of FC.ToInterval(CCE."Most Recent CT Colonography Performed".performed)),
-    // 'most recent Flexible Sigmoidoscopy performed on ' + ToString(date from start of FC.ToInterval(CCE."Most Recent Flexible Sigmoidoscopy Performed".performed)),
-    // 'most recent Colonoscopy performed on ' + ToString(date from start of FC.ToInterval(CCE."Most Recent Colonoscopy Performed".performed)),
+    'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".performed),
     'no evidence of appropriate screening'
   })
 
