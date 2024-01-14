@@ -66,10 +66,6 @@
     "type": "depends-on",
     "display": "Value set Bilateral Mastectomy",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Female Gender",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2"
   } ],
   "parameter": [ {
     "name": "Measurement Period",

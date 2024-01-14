@@ -27,7 +27,8 @@ code "Left (qualifier value)":
 context Patient
 
 define "Is female":
-  Patient.gender in Bx."Female Gender"
+  // Patient.gender in Bx."Female Gender"
+  Patient.gender = 'female'
 
 define AsOf:
   end of "Measurement Period"
@@ -82,7 +83,7 @@ define "Right Mastectomy Procedure":
 
 define "Right Mastectomy Diagnosis":
   ( [Condition: Bx."Right Mastectomy Diagnosis"] 
-     union  ( [Condition: Bx."Unilateral Mastectomy, Unspecified Laterality, Diagnosis"] UnilateralMastectomyDiagnosis
+     union  ( [Condition: Bx."Unilateral Mastectomy, Unspecified Laterality, Diagnosis"] // UnilateralMastectomyDiagnosis
       //  where UnilateralMastectomyDiagnosis.anatomicalLocationSite ~ code '24028007' from FC."SNOMEDCT"
     )
 ) RightMastectomy
@@ -92,15 +93,19 @@ define "Right Mastectomy Diagnosis":
 // end of "Measurement Period"
 
 define "Bilateral Mastectomy Performed":
-  ( ( exists ( Bx."Right Mastectomy Diagnosis" )
- or exists ( "Right Mastectomy Procedure" )
-)
- and ( exists ( Bx."Left Mastectomy Diagnosis" )
- or exists ( "Left Mastectomy Procedure" )
-)
-)
- or exists "Bilateral Mastectomy Diagnosis"
- or exists "Bilateral Mastectomy Procedure"
+  ( 
+		(
+			exists ( "Right Mastectomy Diagnosis" )
+			or exists ( "Right Mastectomy Procedure" )
+		)
+			and 
+		(
+			exists ( "Left Mastectomy Diagnosis" )
+			or exists ( "Left Mastectomy Procedure" )
+		)
+	)
+				or exists "Bilateral Mastectomy Diagnosis"
+				or exists "Bilateral Mastectomy Procedure"
 
 define "Mammography Performed":
 [Procedure: Bx."Mammography"] Mammogram

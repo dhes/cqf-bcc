@@ -15,29 +15,16 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 
-// Proposed change to CQL to support binding of parameters of included libraries:
-// https://jira.hl7.org/browse/FHIR-33126
 include BreastCancerElements called BCE
-
-// NOTE: Introduced Measurement Period as the parameter here for demonstration purposes
-// so it will run on the current implementations.
 
 parameter "Measurement Period" Interval<DateTime>
   default Interval[Now() - 1 year, Now()]
 
 context Patient
 
-// NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
-
 define "Initial Population":
-// exists ( ["Patient Characteristic Sex": "Female"] )
   BCE."Is female"
-//  or?: exists ( [ BCE."SDE Sex": "Female" ] )
-//  AND AgeInYearsAt(date from end of "Measurement Period"
-// ) IN Interval[52, 74]
-// AND AgeInYearsAt("Measurement Period".end) IN Interval[52, 74]
   and AgeInYearsAt(start of "Measurement Period") between 52 and 75
-//  AND exists AdultOutpatientEncounters."Qualifying Encounters"
 
 define "Denominator":
 "Initial Population"
@@ -46,29 +33,7 @@ define "Numerator":
   BCE."Has Appropriate Breast Cancer Screening"
 
 define "Denominator Exclusions":
-// Hospice."Has Hospice Services"
   BCE."Bilateral Mastectomy Performed"
-
-// Numerator Exclusions
-// None
-
-// Denominator Exceptions
-// None
-
-// Stratification
-// None
-
-// Definitions
-
-// define "AdultOutpatientEncounters.Qualifying Encounters":
-// ( ["Encounter, Performed": "Office Visit"]
-// UNION ["Encounter, Performed": "Annual Wellness Visit"]
-// UNION ["Encounter, Performed": "Preventive Care Services Established Office Visit, 18 and Up"]
-// UNION ["Encounter, Performed": "Preventive Care Services Initial Office Visit, 18 and Up"]
-// UNION ["Encounter, Performed": "Home Healthcare Services"]
-// UNION ["Encounter, Performed": "Online Assessments"]
-// UNION ["Encounter, Performed": "Telephone Visits"] ) ValidEncounter
-// WHERE ValidEncounter.relevantPeriod during day of "Measurement Period"
 
 // define "AIFrailLTCF.Has Criteria Indicating Frailty":
 // exists ( ["Device, Order": "Frailty Device"] FrailtyDeviceOrder

@@ -41,3 +41,4 @@ _updateCQFTooling.sh
 _updatePublisher.bat
 _updatePublisher.sh
 bundles/
+input/tests/results/*

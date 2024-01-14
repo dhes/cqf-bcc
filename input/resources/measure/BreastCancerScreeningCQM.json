@@ -93,7 +93,7 @@
         "valueString": "Is female"
       }, {
         "url": "statement",
-        "valueString": "define \"Is female\":\n  Patient.gender in Bx.\"Female Gender\""
+        "valueString": "define \"Is female\":\n  // Patient.gender in Bx.\"Female Gender\"\n  Patient.gender = 'female'"
       }, {
         "url": "displaySequence",
         "valueInteger": 5
@@ -156,10 +156,6 @@
       "type": "depends-on",
       "display": "Value set Mammography",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Female Gender",
-      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2"
     } ],
     "parameter": [ {
       "name": "Measurement Period",
@@ -220,7 +216,7 @@
   "title": "Breast Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
-  "date": "2024-01-12T16:31:27-06:00",
+  "date": "2024-01-13T20:16:45-06:00",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for breast cancer",
   "purpose": "Illustration",
