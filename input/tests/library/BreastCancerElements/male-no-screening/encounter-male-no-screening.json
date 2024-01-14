@@ -1,6 +1,6 @@
 {
   "resourceType": "Encounter",
-  "id": "denom-EXM130-1",
+  "id": "male-no-screening-encounter",
   "subject": {
       "reference": "Patient/denom-EXM130"
   },

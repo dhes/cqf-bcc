@@ -1,6 +1,6 @@
 {
     "resourceType": "Encounter",
-    "id": "numer-EXM130-4",
+    "id": "female-yes-screening-encounter",
     "subject": {
         "reference": "Patient/numer-EXM130"
     },

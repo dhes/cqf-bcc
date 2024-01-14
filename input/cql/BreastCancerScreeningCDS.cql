@@ -3,7 +3,7 @@ library BreastCancerScreeningCDS version '0.1.0'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include FHIRCommon version '4.0.1' called FC
+// include FHIRCommon version '4.0.1' called FC
 
 include BreastCancerElements called BCE
 
@@ -19,12 +19,22 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Age":
+  AgeInYearsAt(start of "Measurement Period")
+
+define "Age between 52 and 75":
+  "Age" between 52 and 75
+
+define "Is female":
+  BCE."Is female"
+
 define "Is Recommendation Applicable":
-  AgeInYearsAt(start of "Measurement Period") between 50 and 75
-    and not BCE."Has Appropriate Breast Cancer Screening"
-    // and not BCE."Has Active Malignant Neoplasm"
-    and not (BCE."Bilateral Mastectomy Performed")
-    and BCE."Is female"
+  "Is female"
+  and "Age between 52 and 75"
+  and not BCE."Has Appropriate Breast Cancer Screening"
+  and not (BCE."Bilateral Mastectomy Performed")
+  and BCE."Is female"
+  // and not BCE."Has Active Malignant Neoplasm"
 
 define "Get Card Summary":
   if "Is Recommendation Applicable" then

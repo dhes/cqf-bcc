@@ -1,6 +1,6 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "cce-denom-EXM130",
+  "id": "male-no-screening-guidanceresponse",
   "contained": [
     {
       "resourceType": "Parameters",

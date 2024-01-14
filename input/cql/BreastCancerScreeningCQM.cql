@@ -22,9 +22,18 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Initial Population":
+define "Age":
+  AgeInYearsAt(start of "Measurement Period")
+
+define "Age between 52 and 75":
+  "Age" between 52 and 75
+
+define "Is female":
   BCE."Is female"
-  and AgeInYearsAt(start of "Measurement Period") between 52 and 75
+
+define "Initial Population":
+  "Is female"
+  and "Age between 52 and 75"
 
 define "Denominator":
 "Initial Population"
