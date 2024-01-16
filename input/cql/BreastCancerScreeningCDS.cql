@@ -33,7 +33,7 @@ define "Is Recommendation Applicable":
   and "Age between 52 and 75"
   and not BCE."Has Appropriate Breast Cancer Screening"
   and not (BCE."Bilateral Mastectomy Performed")
-  and BCE."Is female"
+  // and BCE."Is female"
   // and not BCE."Has Active Malignant Neoplasm"
 
 define "Get Card Summary":
