@@ -1,0 +1,202 @@
+Checking internet connection...
+Online
+
+No directory found by convention for: cql
+Refreshing libraries...
+Refreshing measures...
+Refreshing tests
+Error reading in Library from path: /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml
+java.lang.RuntimeException: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error reading in Library from path: /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml
+java.lang.RuntimeException: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error reading in Library from path: /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml
+java.lang.RuntimeException: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error reading in Library from path: /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml
+java.lang.RuntimeException: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error reading in Library from path: /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml
+java.lang.RuntimeException: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error reading in Library from path: /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml
+java.lang.RuntimeException: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-request.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-request.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-response.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-response.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-response.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-response.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting PlanDefinition paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-request.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-request.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-request.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-request.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-response.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-response.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-response.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-response.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-request.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-request.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCQM.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/library/BreastCancerScreeningCDS.xml: HAPI-1851: DataFormatException at [Line number = 2
+Column number = 325
+System Id = null
+Public Id = null
+Location Uri= null
+CharacterOffset = 363
+]: HAPI-1815: Unknown resource type 'library': Resource names are case sensitive, found similar name: 'Library'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/resources/plandefinition/BreastCancerScreeningCDS.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-request.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-request.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-response.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-screen/should-screen-bcs-response.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-response.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-response.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
+Error setting Questionnaire paths while reading resource at: '/Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-request.json'. Error: Error reading resource from path /Users/danheslinga/cqf-bcc/input/tests/cdshooks/BreastCancerScreeningCDS/should-not-screen/should-not-screen-request.json: HAPI-1838: Invalid JSON content detected, missing required element: 'resourceType'
