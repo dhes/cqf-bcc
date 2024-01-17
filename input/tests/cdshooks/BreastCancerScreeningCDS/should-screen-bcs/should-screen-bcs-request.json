@@ -4,7 +4,7 @@
   "hook": "patient-view",
   "context": {
     "userId": "Practitioner/example",
-    "patientId": "should-screen-ccs",
-    "encounterId": "should-screen-ccs-1"
+    "patientId": "should-screen",
+    "encounterId": "should-screen-1"
   }
 }
