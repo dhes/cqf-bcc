@@ -1,17 +1,21 @@
 {
   "resourceType": "Library",
   "id": "BreastCancerScreeningCDS",
-  "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-    "valueReference": {
-      "reference": "Device/cqf-tooling"
-    }
-  } ],
-  "url": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCDS",
-  "version": "0.1.0",
   "name": "BreastCancerScreeningCDS",
-  "content": [ {
-    "contentType": "text/cql",
-    "data": "bGlicmFyeSBCcmVhc3RDYW5jZXJTY3JlZW5pbmdDRFMgdmVyc2lvbiAnMC4xLjAnCgp1c2luZyBGSElSIHZlcnNpb24gJzQuMC4xJwoKaW5jbHVkZSBGSElSSGVscGVycyB2ZXJzaW9uICc0LjAuMScKLy8gaW5jbHVkZSBGSElSQ29tbW9uIHZlcnNpb24gJzQuMC4xJyBjYWxsZWQgRkMKCmluY2x1ZGUgQnJlYXN0Q2FuY2VyRWxlbWVudHMgY2FsbGVkIEJDRQoKLy8gUVVFU1RJT046IFNob3VsZCB0aGlzIGJlIGEgc2luZ2xlIHRpbWVwb2ludCwgb3IgaXMgYSBwZXJpb2QgcmVxdWlyZWQ/Ci8vcGFyYW1ldGVyIEFzT2YgRGF0ZVRpbWUgZGVmYXVsdCBOb3coKQoKLyoKTk9URTogSW50cm9kdWNlZCBNZWFzdXJlbWVudCBQZXJpb2QgYXMgdGhlIHBhcmFtZXRlciBoZXJlIGZvciBkZW1vbnN0cmF0aW9uIHB1cnBvc2VzCnNvIGl0IHdpbGwgcnVuIG9uIHRoZSBjdXJyZW50IGltcGxlbWVudGF0aW9ucy4KKi8KcGFyYW1ldGVyICJNZWFzdXJlbWVudCBQZXJpb2QiIEludGVydmFsPERhdGVUaW1lPgogIGRlZmF1bHQgSW50ZXJ2YWxbTm93KCkgLSAyIHllYXJzLCBOb3coKV0KCmNvbnRleHQgUGF0aWVudAoKZGVmaW5lICJBZ2UiOgogIEFnZUluWWVhcnNBdChzdGFydCBvZiAiTWVhc3VyZW1lbnQgUGVyaW9kIikKCmRlZmluZSAiQWdlIGJldHdlZW4gNTIgYW5kIDc1IjoKICAiQWdlIiBiZXR3ZWVuIDUyIGFuZCA3NQoKZGVmaW5lICJJcyBmZW1hbGUiOgogIEJDRS4iSXMgZmVtYWxlIgoKZGVmaW5lICJJcyBSZWNvbW1lbmRhdGlvbiBBcHBsaWNhYmxlIjoKICAiSXMgZmVtYWxlIgogIGFuZCAiQWdlIGJldHdlZW4gNTIgYW5kIDc1IgogIGFuZCBub3QgQkNFLiJIYXMgQXBwcm9wcmlhdGUgQnJlYXN0IENhbmNlciBTY3JlZW5pbmciCiAgYW5kIG5vdCAoQkNFLiJCaWxhdGVyYWwgTWFzdGVjdG9teSBQZXJmb3JtZWQiKQogIC8vIGFuZCBCQ0UuIklzIGZlbWFsZSIKICAvLyBhbmQgbm90IEJDRS4iSGFzIEFjdGl2ZSBNYWxpZ25hbnQgTmVvcGxhc20iCgpkZWZpbmUgIkdldCBDYXJkIFN1bW1hcnkiOgogIGlmICJJcyBSZWNvbW1lbmRhdGlvbiBBcHBsaWNhYmxlIiB0aGVuCiAgICAnUmVjb21tZW5kIGFwcHJvcHJpYXRlIGJyZWFzdCBjYW5jZXIgc2NyZWVuaW5nJwogIGVsc2UKICAgICdQYXRpZW50IGhhcyBhcHByb3ByaWF0ZSBicmVhc3QgY2FuY2VyIHNjcmVlbmluZycKCmRlZmluZSAiR2V0IENhcmQgRGV0YWlsIjoKICBpZiAiSXMgUmVjb21tZW5kYXRpb24gQXBwbGljYWJsZSIgdGhlbgogICAgJ1BhdGllbnQgbWVldHMgdGhlIGluY2x1c2lvbiBjcml0ZXJpYSBmb3IgYXBwcm9wcmlhdGUgYnJlYXN0IGNhbmNlciBzY3JlZW5pbmcsIGJ1dCBoYXMgJyArIFJhdGlvbmFsZSArICcuJwogIGVsc2UKICAgICdQYXRpZW50IGhhcyBhcHByb3ByaWF0ZSBicmVhc3QgY2FuY2VyIHNjcmVlbmluZzogJyArIFJhdGlvbmFsZSArICcuJwoKZGVmaW5lICJSYXRpb25hbGUiOgogIENvYWxlc2NlKHsKICAgICdtb3N0IHJlY2VudCBtYW1tb2dyYW0gcGVyZm9ybWVkIG9uICcgKyBUb1N0cmluZyhkYXRlIGZyb20gQkNFLiJNb3N0IFJlY2VudCBNYW1tb2dyYW0iLnBlcmZvcm1lZCksCiAgICAnbm8gZXZpZGVuY2Ugb2YgYXBwcm9wcmlhdGUgc2NyZWVuaW5nJwogIH0pCgpkZWZpbmUgIkdldCBDYXJkIEluZGljYXRvciI6CiAgaWYgIklzIFJlY29tbWVuZGF0aW9uIEFwcGxpY2FibGUiIHRoZW4KICAgICdhc2FwJwogIGVsc2UKICAgICdyb3V0aW5lJwo="
-  } ]
+  "title": "Breast Cancer Screening CDS",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "content": [
+    {
+      "id": "ig-loader-BreastCancerScreeningCDS.cql"
+    }
+  ]
 }

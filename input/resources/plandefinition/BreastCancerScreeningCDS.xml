@@ -3,8 +3,8 @@
 	<meta>
 		<profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
 	</meta>
-	<name value="BreastCancerScreeningCDS"/>
-	<title value="Breast Cancer Screening CDS"/>
+	<name value="PlanDefinition_BreastCancerScreeningCDS"/>
+	<title value="PlanDefinition - Breast Cancer Screening CDS"/>
 	<description value="Breast Cancer Screening CDS"/>
 	<type>
 		<coding>
@@ -68,7 +68,7 @@
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
-			<path value="action.priority"/>
+			<path value="action.extension"/>
 			<expression>
 				<language value="text/cql-identifier"/>
 				<expression value="Get Card Indicator"/>
