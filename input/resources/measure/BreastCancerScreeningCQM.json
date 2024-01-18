@@ -105,10 +105,10 @@
         "valueString": "BreastCancerScreeningCQM"
       }, {
         "url": "name",
-        "valueString": "Initial Population"
+        "valueString": "Is female"
       }, {
         "url": "statement",
-        "valueString": "// NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes\ndefine \"Initial Population\":\n// exists ( [\"Patient Characteristic Sex\": \"Female\"] )\n  BCE.\"Is female\"\n//  or?: exists ( [ BCE.\"SDE Sex\": \"Female\" ] )\n//  AND AgeInYearsAt(date from end of \"Measurement Period\"\n// ) IN Interval[52, 74]\n// AND AgeInYearsAt(\"Measurement Period\".end) IN Interval[52, 74]\n  and AgeInYearsAt(start of \"Measurement Period\") between 52 and 75"
+        "valueString": "define \"Is female\":\n  BCE.\"Is female\""
       }, {
         "url": "displaySequence",
         "valueInteger": 6
@@ -120,13 +120,58 @@
         "valueString": "BreastCancerScreeningCQM"
       }, {
         "url": "name",
-        "valueString": "Denominator"
+        "valueString": "Age"
       }, {
         "url": "statement",
-        "valueString": "//  AND exists AdultOutpatientEncounters.\"Qualifying Encounters\"\ndefine \"Denominator\":\n\"Initial Population\""
+        "valueString": "define \"Age\":\n  AgeInYearsAt(start of \"Measurement Period\")"
       }, {
         "url": "displaySequence",
         "valueInteger": 7
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "BreastCancerScreeningCQM"
+      }, {
+        "url": "name",
+        "valueString": "Age between 52 and 75"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Age between 52 and 75\":\n  \"Age\" between 52 and 75"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 8
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "BreastCancerScreeningCQM"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\":\n  \"Is female\"\n  and \"Age between 52 and 75\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 9
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "BreastCancerScreeningCQM"
+      }, {
+        "url": "name",
+        "valueString": "Denominator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Denominator\":\n\"Initial Population\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 10
       } ]
     } ],
     "status": "active",
@@ -216,7 +261,7 @@
   "title": "Breast Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
-  "date": "2024-01-13T20:16:45-06:00",
+  "date": "2024-01-17T17:30:06-06:00",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for breast cancer",
   "purpose": "Illustration",
