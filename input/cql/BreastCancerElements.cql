@@ -108,13 +108,13 @@ define "Bilateral Mastectomy Performed":
 				or exists "Bilateral Mastectomy Procedure"
 
 define "Mammography Performed":
-[Procedure: Bx."Mammography"] Mammogram
-where Mammogram.status = 'completed'
+[Observation: Bx."Mammography"] Mammogram
+where Mammogram.status = 'final'
 
-define function MostRecent(procedures List<Procedure>, asOf DateTime):
+define function MostRecent(observations List<Observation>, asOf DateTime):
   First(
-    procedures P
-      sort by start of FC.ToInterval(performed)
+    observations O
+      sort by start of FC.ToInterval(issued)
   )
 
 define "Most Recent Mammogram":
@@ -122,7 +122,7 @@ define "Most Recent Mammogram":
 
 define "Mammography Performed Within 27 Months":
 "Mammography Performed" P
-where FC.ToInterval(P.performed) ends 27 months or less on or before AsOf
+where FC.ToInterval(P.issued) ends 27 months or less on or before AsOf
 
 define "Has Appropriate Breast Cancer Screening":
 exists "Mammography Performed Within 27 Months"

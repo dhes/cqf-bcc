@@ -43,7 +43,7 @@
     "reference": "Patient/should-not-screen"
   },
   "effectiveDateTime": "2022-01-01T00:00:00+00:00",
-  "issued": "2024-01-01T00:00:00+00:00",
+  "issued": "2022-01-01T00:00:00+00:00",
   "valueCodeableConcept": {
     "coding": [
       {
