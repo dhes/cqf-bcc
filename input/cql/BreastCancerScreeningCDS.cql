@@ -50,7 +50,7 @@ define "Get Card Detail":
 
 define "Rationale":
   Coalesce({
-    'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".performed),
+    'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued),
     'no evidence of appropriate screening'
   })
 
