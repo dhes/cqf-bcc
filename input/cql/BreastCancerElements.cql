@@ -49,11 +49,11 @@ define "aged 52 to 74 y inclusive": // AKA "Initial Population"
 
 //...new...
 // ...CDS...
-define "Woman aged 50 to 74 y inclusive":
-  Woman and "aged 50 to 74 y inclusive"
+// define "Woman aged 50 to 74 y inclusive":
+//   Woman and "aged 50 to 74 y inclusive"
 // ...CQM...
-define "Woman aged 52 to 74 y inclusive":
-  Woman and "aged 52 to 74 y inclusive"
+// define "Woman aged 52 to 74 y inclusive":
+//   Woman and "aged 52 to 74 y inclusive"
 
 define AsOf:
   end of "Measurement Period"
@@ -145,9 +145,21 @@ define function MostRecent(observations List<Observation>, asOf DateTime):
 define "Most Recent Mammogram":
   MostRecent("Mammography Performed", AsOf)
 
-define "Mammography Performed Within 27 Months":
+define "Mammography Performed Within 27 Months": // relative to end of measurment period
 "Mammography Performed" P
 where FC.ToInterval(P.issued) ends 27 months or less on or before AsOf
 
+define "Mammography Performed Within 24 Months": // relative to end of measurment period
+"Mammography Performed" P
+where FC.ToInterval(P.issued) ends 24 months or less on or before AsOf
+
 define "Has Appropriate Breast Cancer Screening":
 exists "Mammography Performed Within 27 Months"
+
+define "Mammogram within 24 months":
+  exists "Mammography Performed" P
+  where P.issued >= (Now() - 2 years)
+
+define "Mammogram within 27 months": // this may not be all that useful
+  exists "Mammography Performed" P
+  where P.issued >= (Now() - 27 months)

@@ -28,6 +28,9 @@ define "Age":
 define "Age between 52 and 75":
   "Age" between 52 and 75
 
+define "Woman aged 52 to 74 y inclusive":
+  BCE.Woman and BCE."aged 52 to 74 y inclusive"
+
 // define "Is female":
 //   BCE."Is female"
 

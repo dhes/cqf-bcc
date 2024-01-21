@@ -14,48 +14,62 @@ include BreastCancerElements called BCE
 NOTE: Introduced Measurement Period as the parameter here for demonstration purposes
 so it will run on the current implementations.
 */
-parameter "Measurement Period" Interval<DateTime>
-  default Interval[Now() - 2 years, Now()]
+// parameter "Measurement Period" Interval<DateTime>
+//   default Interval[Now() - 2 years, Now()]
 
 context Patient
 
-define "Age":
-  AgeInYearsAt(start of "Measurement Period")
+// define "Age":
+//   AgeInYearsAt(start of "Measurement Period")
 
-define "Age between 52 and 75":
-  "Age" between 52 and 75
+// define "Age between 52 and 75":
+//   "Age" between 52 and 75
 
 // define "Is female":
 //   BCE."Is female"
 
-define "Is Recommendation Applicable":
-  BCE."Is female"
-  and "Age between 52 and 75"
-  and not BCE."Has Appropriate Breast Cancer Screening"
-  and not (BCE."Bilateral Mastectomy Performed")
-  // and BCE."Is female"
-  // and not BCE."Has Active Malignant Neoplasm"
+define "Woman aged 50 to 74 y inclusive":
+  BCE.Woman and BCE."aged 50 to 74 y inclusive"
+
+// define "Is Recommendation Applicable":
+//   BCE."Is female"
+//   and "Age between 52 and 75"
+//   and not BCE."Has Appropriate Breast Cancer Screening"
+//   and not (BCE."Bilateral Mastectomy Performed")
+//   // and BCE."Is female"
+//   // and not BCE."Has Active Malignant Neoplasm"
+
+define "Mammogram status":
+// if Count(X) > 0 then X[1] else 0
+  if 
+    "Woman aged 50 to 74 y inclusive" 
+    and BCE."Mammogram within 24 months" 
+  then 'mammogram up to date'
+  else 'mammogram due'
 
 define "Get Card Summary":
-  if "Is Recommendation Applicable" then
-    'Recommend appropriate breast cancer screening'
-  else
-    'Patient has appropriate breast cancer screening'
-
-define "Get Card Detail":
-  if "Is Recommendation Applicable" then
-    'Patient meets the inclusion criteria for appropriate breast cancer screening, but has ' + Rationale + '.'
-  else
-    'Patient has appropriate breast cancer screening: ' + Rationale + '.'
+  // if "Is Recommendation Applicable" then
+  //   'Recommend appropriate breast cancer screening'
+  // else
+  //   'Patient has appropriate breast cancer screening'
+  "Mammogram status"
 
 define "Rationale":
   Coalesce({
     'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued),
-    'no evidence of appropriate screening'
+    'no mammogram on file'
   })
 
+define "Get Card Detail":
+  // if "Is Recommendation Applicable" then
+  //   'Patient meets the inclusion criteria for appropriate breast cancer screening, but has ' + Rationale + '.'
+  // else
+  //   'Patient has appropriate breast cancer screening: ' + Rationale + '.'
+	Rationale
+
 define "Get Card Indicator":
-  if "Is Recommendation Applicable" then
-    'asap'
+  // if "Is Recommendation Applicable" then
+	if "Mammogram status" = 'mammogram due'
+  then 'asap'
   else
     'routine'
