@@ -26,9 +26,31 @@ code "Left (qualifier value)":
 
 context Patient
 
+// obsolescense candidate
 define "Is female":
   // Patient.gender in Bx."Female Gender"
   Patient.gender = 'female'
+
+// ...or...
+define Woman:
+  Patient.gender = 'female'  
+
+// These revisions align the CQL variables with USPSTF language
+// ...new...
+// CDS version
+define "aged 50 to 74 y":
+  AgeInYears() between 50 and 74 // `between` is inclusive
+// CQM version
+define "aged 52 to 74 y": // AKA "Initial Population"
+  AgeInYears() between 52 and 74 // `between` is inclusive
+
+//...new...
+// ...CDS...
+define "Woman aged 50 to 74 y":
+  Woman and "aged 50 to 74 y"
+// ...CQM...
+define "Woman aged 52 to 74 y":
+  Woman and "aged 52 to 74 y"
 
 define AsOf:
   end of "Measurement Period"

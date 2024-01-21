@@ -25,11 +25,11 @@ define "Age":
 define "Age between 52 and 75":
   "Age" between 52 and 75
 
-define "Is female":
-  BCE."Is female"
+// define "Is female":
+//   BCE."Is female"
 
 define "Is Recommendation Applicable":
-  "Is female"
+  BCE."Is female"
   and "Age between 52 and 75"
   and not BCE."Has Appropriate Breast Cancer Screening"
   and not (BCE."Bilateral Mastectomy Performed")

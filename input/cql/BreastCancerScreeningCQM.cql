@@ -28,11 +28,11 @@ define "Age":
 define "Age between 52 and 75":
   "Age" between 52 and 75
 
-define "Is female":
-  BCE."Is female"
+// define "Is female":
+//   BCE."Is female"
 
 define "Initial Population":
-  "Is female"
+  BCE."Is female"
   and "Age between 52 and 75"
 
 define "Denominator":
