@@ -40,7 +40,7 @@
     "text": "MG Breast Screening"
   },
   "subject": {
-    "reference": "Patient/should-screen"
+    "reference": "Patient/overdue"
   },
   "effectiveDateTime": "2021-12-01T00:00:00+00:00",
   "issued": "2021-12-01T00:00:00+00:00",

@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/should-screen"
+    "reference": "Patient/overdue"
   },
   "status": "finished",
   "class": {

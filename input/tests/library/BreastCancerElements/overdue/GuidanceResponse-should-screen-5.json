@@ -1,6 +1,6 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "should-not-screen-6",
+  "id": "should-screen-5",
   "contained": [
     {
       "resourceType": "CarePlan",
@@ -11,37 +11,37 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/should-not-screen"
+        "reference": "Patient/overdue"
       },
       "activity": [
         {
           "reference": {
-            "reference": "#screening-not-recommended"
+            "reference": "#screening-recommended"
           }
         }
       ]
     },
     {
       "resourceType": "ServiceRequest",
-      "id": "screening-not-recommended",
+      "id": "screening-recommended",
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01"
+          "valueMarkdown": "Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Colorectal Cancer Screening Not Recommended"
+        "text": "Colorectal Cancer Screening Recommended"
       },
       "subject": {
-        "reference": "Patient/should-not-screen"
+        "reference": "Patient/should-screen"
       },
       "supportingInfo": [
         {
-          "reference": "should-not-screen-1"
+          "reference": "should-screen-2"
         }
       ]
     }
@@ -49,7 +49,7 @@
   "moduleCanonical": "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/should-not-screen"
+    "reference": "Patient/should-screen"
   },
   "result": {
     "reference": "#expected"

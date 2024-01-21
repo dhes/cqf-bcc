@@ -40,7 +40,10 @@
     "text": "Findings"
   },
   "subject": {
-    "reference": "Patient/should-not-screen"
+    "reference": "Patient/overdue"
+  },
+  "encounter": {
+    "display": "ER Visit"
   },
   "effectiveDateTime": "2019-02-03T19:43:30.000Z",
   "issued": "2019-02-03T19:43:30.000Z",

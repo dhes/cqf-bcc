@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/should-not-screen"
+    "reference": "Patient/up-to-date"
   },
   "status": "finished",
   "class": {

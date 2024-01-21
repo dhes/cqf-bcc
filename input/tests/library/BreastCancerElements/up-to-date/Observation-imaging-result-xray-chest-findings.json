@@ -40,10 +40,7 @@
     "text": "Findings"
   },
   "subject": {
-    "reference": "Patient/should-screen"
-  },
-  "encounter": {
-    "display": "ER Visit"
+    "reference": "Patient/up-to-date"
   },
   "effectiveDateTime": "2019-02-03T19:43:30.000Z",
   "issued": "2019-02-03T19:43:30.000Z",
