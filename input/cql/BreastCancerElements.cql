@@ -44,8 +44,15 @@ context Patient
 define Woman:
   Patient.gender = 'female'
 
+define "Todays date":
+  "Reference Date"
+
+define BirthDate:
+  ToString(Patient.birthDate)
+
 define Age:
-  AgeInYears()
+  AgeInYearsAt("Reference Date")
+  // AgeInYearsAt(Today()) // production
 
 // These revisions align the CQL variables with USPSTF language
 // ...new...
