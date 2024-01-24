@@ -17,7 +17,26 @@ so it will run on the current implementations.
 // parameter "Measurement Period" Interval<DateTime>
 //   default Interval[Now() - 2 years, Now()]
 
+parameter "Null Patient.deceased assumed to mean alive" Boolean default false 
+
 context Patient
+
+// First and foremost, are you alive? Are you an active patient? 
+// Always and only. 
+
+define "Alive": 
+  case 
+    // when Patient.deceased = true then false //redundant
+    when Patient.deceased = false then true
+    when "Null Patient.deceased assumed to mean alive" = true and Patient.deceased is null then true
+    else false
+  end
+
+// define Alive:
+//   Patient.deceased = false
+
+define Active: 
+  Patient.active = true
 
 // define "Age":
 //   AgeInYearsAt(start of "Measurement Period")

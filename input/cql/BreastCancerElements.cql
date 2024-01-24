@@ -40,7 +40,6 @@ context Patient
 //   // Patient.gender in Bx."Female Gender"
 //   Patient.gender = 'female'
 
-// ...or...
 define Woman:
   Patient.gender = 'female'
 
