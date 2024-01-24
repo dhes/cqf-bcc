@@ -5,6 +5,6 @@
   "context": {
     "userId": "Practitioner/example",
     "patientId": "should-not-screen",
-    "encounterId": "should-not-screen-4"
+    "encounterId": "recent"
   }
 }

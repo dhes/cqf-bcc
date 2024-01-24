@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "imaging-result-xray-chest-findings",
+  "id": "non-mammogram-imaging
   "meta": {
     "extension": [
       {

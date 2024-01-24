@@ -27,3 +27,14 @@ You might ask why these files need to be in so many places. I might say I don't 
 
 Or maybe since BreastCancerElements is common to BreastCancerCDS and BreastCancerCQM I'll house the test files there and link to the rest. 
 
+2024-01-22
+
+As an example, this creates a symlink for the `overdue` and `up-to-date` test patients when executed from the `input/tests/library/BreastCancerScreeningCDS` directory:
+
+```
+ln -s ../BreastCancerElements/overdue ./overdue
+ln -s ../BreastCancerElements/up-to-date ./overdue/up-to-date
+```
+
+
+

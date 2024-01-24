@@ -25,8 +25,11 @@ context Patient
 // define "Age between 52 and 75":
 //   "Age" between 52 and 75
 
-// define "Is female":
-//   BCE."Is female"
+define "Woman":
+  BCE."Woman"
+
+define "Age":
+  AgeInYears()
 
 define "Woman aged 50 to 74 y inclusive":
   BCE.Woman and BCE."aged 50 to 74 y inclusive"
@@ -39,37 +42,65 @@ define "Woman aged 50 to 74 y inclusive":
 //   // and BCE."Is female"
 //   // and not BCE."Has Active Malignant Neoplasm"
 
-define "Mammogram status":
-// if Count(X) > 0 then X[1] else 0
-  if 
-    "Woman aged 50 to 74 y inclusive" 
-    and BCE."Mammogram within 24 months" 
-  then 'mammogram up to date'
-  else 'mammogram due'
+define "History of bilateral mastectomy":
+  BCE."Bilateral Mastectomy Performed"
+
+define "Excluded":
+  "History of bilateral mastectomy"
+
+define "Most recent mammogram":
+  date from BCE."Most Recent Mammogram".issued
+
+define "Months elapsed":
+  months between BCE."Most Recent Mammogram".issued and BCE."Reference Date"
+
+// define "Rationale":
+//   Coalesce({
+//     'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued),
+//     'no mammogram on file'
+//   })
+
+// define "Mammogram status":
+// // if Count(X) > 0 then X[1] else 0
+//   if 
+//     "Woman aged 50 to 74 y inclusive" 
+//     and BCE."Mammogram within 24 months" 
+//   then 'mammogram up to date'
+//   else 'mammogram due'
 
 define "Get Card Summary":
   // if "Is Recommendation Applicable" then
   //   'Recommend appropriate breast cancer screening'
   // else
   //   'Patient has appropriate breast cancer screening'
-  "Mammogram status"
+  // "Mammogram status"
+  if 
+    "Woman aged 50 to 74 y inclusive" 
+    and not BCE."Mammogram within 24 months" 
+  then 'mammogram due'
+  else null
+  // case 
+  //   when "Woman aged 50 to 74 y inclusive" and BCE."Mammogram within 24 months" then 'mammogram up to date'
+  //   when "Woman aged 50 to 74 y inclusive" and not BCE."Mammogram within 24 months" then 'mammogram due'
+  //   else ''
+  // end
 
-define "Rationale":
-  Coalesce({
-    'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued),
-    'no mammogram on file'
-  })
+define "Get Card Indicator":
+  // if "Is Recommendation Applicable" then
+	if "Get Card Summary" = 'mammogram due'
+  then 'asap'
+  else null
+
 
 define "Get Card Detail":
   // if "Is Recommendation Applicable" then
   //   'Patient meets the inclusion criteria for appropriate breast cancer screening, but has ' + Rationale + '.'
   // else
   //   'Patient has appropriate breast cancer screening: ' + Rationale + '.'
-	Rationale
-
-define "Get Card Indicator":
-  // if "Is Recommendation Applicable" then
-	if "Mammogram status" = 'mammogram due'
-  then 'asap'
-  else
-    'routine'
+// Rationale
+  if "Get Card Summary" = 'mammogram due'
+  then Coalesce({
+    'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued),
+    'no mammogram on file'
+  })
+  else null
