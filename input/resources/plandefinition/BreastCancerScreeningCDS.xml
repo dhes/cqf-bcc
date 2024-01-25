@@ -49,7 +49,7 @@
 			<kind value="applicability"/>
 			<expression>
 				<language value="text/cql-identifier"/>
-				<expression value="Is Recommendation Applicable"/>
+				<expression value="Recommendation is applicable"/>
 			</expression>
 		</condition>
 		<!-- dynamic card elements -->

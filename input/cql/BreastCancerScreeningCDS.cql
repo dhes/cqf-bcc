@@ -87,40 +87,49 @@ define "Months elapsed":
 //   then 'mammogram up to date'
 //   else 'mammogram due'
 
-define "Get Card Summary":
+define "Recommendation is applicable": //"applicible" in the sense that this patient is eligible and due. 
   // if "Is Recommendation Applicable" then
   //   'Recommend appropriate breast cancer screening'
   // else
   //   'Patient has appropriate breast cancer screening'
   // "Mammogram status"
-  if 
+  // if 
     "Woman aged 50 to 74 y inclusive" 
-    and not BCE."Mammogram within 24 months" 
     and not Excluded
-  then 'mammogram due'
-  else null
+    and not BCE."Mammogram within 24 months"
+    // and not "Has breast cancer" // eventually...
+  // then 'mammogram due'
+  // else null
   // case 
   //   when "Woman aged 50 to 74 y inclusive" and BCE."Mammogram within 24 months" then 'mammogram up to date'
   //   when "Woman aged 50 to 74 y inclusive" and not BCE."Mammogram within 24 months" then 'mammogram due'
   //   else ''
   // end
 
+define "Get Card Summary":
+  if "Recommendation is applicable" then
+    'Due for mammogram'
+  else
+    'Up to date or not a candidate.'
+
 define "Get Card Indicator":
   // if "Is Recommendation Applicable" then
-	if "Get Card Summary" = 'mammogram due'
+  if "Recommendation is applicable"
   then 'asap'
   else null
 
-
 define "Get Card Detail":
-  // if "Is Recommendation Applicable" then
-  //   'Patient meets the inclusion criteria for appropriate breast cancer screening, but has ' + Rationale + '.'
-  // else
-  //   'Patient has appropriate breast cancer screening: ' + Rationale + '.'
-// Rationale
-  if "Get Card Summary" = 'mammogram due'
+  if "Recommendation is applicable" then
+    'This patient is up to date with breast cancer screening, with ' + Rationale + '.'
+  else
+    'This patient either is not a candidate for breast cancer screening, or is a candidate but is overdue, with ' + Rationale + '.'
+
+define Rationale:
+  if "Recommendation is applicable"
   then Coalesce({
-    'most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued),
-    'no mammogram on file'
+    ' the most recent mammogram performed on ' + ToString(date from BCE."Most Recent Mammogram".issued) + '.',
+    ' no mammogram on file'
   })
   else null
+
+
