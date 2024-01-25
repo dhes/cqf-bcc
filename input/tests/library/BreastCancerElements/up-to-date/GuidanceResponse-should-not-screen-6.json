@@ -27,21 +27,21 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient has appropriate Breast cancer screening: most recent Mammogram performed on 2012-01-01"
+          "valueMarkdown": "This patient had a mammogram less that two years ago. The date of her most recent mammogram was 2024-01-01"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Breast Cancer Screening Not Recommended"
+        "text": "Up to date. "
       },
       "subject": {
-        "reference": "Patient/should-not-screen"
+        "reference": "Patient/up-to-date"
       },
       "supportingInfo": [
         {
-          "reference": "should-not-screen-1"
+          "reference": "Observation/mammogram-up-to-date"
         }
       ]
     }
@@ -49,7 +49,7 @@
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/should-not-screen"
+    "reference": "Patient/up-to-date"
   },
   "result": {
     "reference": "#expected"

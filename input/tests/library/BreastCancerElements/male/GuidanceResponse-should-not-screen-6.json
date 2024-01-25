@@ -27,7 +27,7 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient has appropriate breast cancer screening: most recent Mammogram performed on 2012-01-01"
+          "valueMarkdown": "Males do not meet inclusion criteria for breast cancer screening"
         }
       ],
       "status": "draft",
@@ -38,12 +38,7 @@
       },
       "subject": {
         "reference": "Patient/male"
-      },
-      "supportingInfo": [
-        {
-          "reference": "should-not-screen-1"
-        }
-      ]
+      }
     }
   ],
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",

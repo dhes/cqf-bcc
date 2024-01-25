@@ -96,6 +96,7 @@ define "Get Card Summary":
   if 
     "Woman aged 50 to 74 y inclusive" 
     and not BCE."Mammogram within 24 months" 
+    and not Excluded
   then 'mammogram due'
   else null
   // case 

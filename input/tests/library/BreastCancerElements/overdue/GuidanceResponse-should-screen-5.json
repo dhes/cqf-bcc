@@ -27,7 +27,7 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient meets the inclusion criteria for appropriate Breast cancer screening, but has most recent Mammogram performed on 2009-12-30"
+          "valueMarkdown": "Patient meets the inclusion criteria for breast cancer screening and is due, because the most recent mammogram was performed on 2021-12-01, more that two years ago"
         }
       ],
       "status": "draft",
@@ -37,11 +37,11 @@
         "text": "Breast Cancer Screening Recommended"
       },
       "subject": {
-        "reference": "Patient/should-screen"
+        "reference": "Patient/overdue"
       },
       "supportingInfo": [
         {
-          "reference": "should-screen-2"
+          "reference": "Observation/mammogram-overdue"
         }
       ]
     }
@@ -49,7 +49,7 @@
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/should-screen"
+    "reference": "Patient/overdue"
   },
   "result": {
     "reference": "#expected"

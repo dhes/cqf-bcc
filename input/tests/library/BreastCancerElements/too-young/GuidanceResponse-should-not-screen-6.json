@@ -27,23 +27,18 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient has appropriate Breast cancer screening: most recent Mammogram performed on 2012-01-01"
+          "valueMarkdown": "This patient is too young for breast cancer screening. "
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Breast Cancer Screening Not Recommended"
+        "text": "Too young"
       },
       "subject": {
         "reference": "Patient/too-young"
-      },
-      "supportingInfo": [
-        {
-          "reference": "should-not-screen-1"
-        }
-      ]
+      }
     }
   ],
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
