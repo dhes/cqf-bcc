@@ -36,5 +36,36 @@ ln -s ../BreastCancerElements/overdue ./overdue
 ln -s ../BreastCancerElements/up-to-date ./overdue/up-to-date
 ```
 
+2024-01-26
 
+This is from ChatGPT:
+
+>To create a relative symlink in macOS that populates the `CDS` directory with all files from its sibling directory `Elements`, you will need to use the Terminal and the `ln` command. The steps below assume that `CDS` and `Elements` are sibling directories within the same parent directory. Here's how you can do it:
+>
+>1. **Open Terminal**: You can do this by searching for Terminal in Spotlight or accessing it from the Applications/Utilities folder.
+>
+>2. **Navigate to the Parent Directory**: Use the `cd` command to navigate to the parent directory that contains both the `CDS` and `Elements` directories. For example, if the parent directory is named `ParentDirectory`, you would type:
+>
+>   ```bash
+>    cd path/to/ParentDirectory
+>    ```
+>
+>3. **Create Symlinks for All Files in `Elements` Inside `CDS`**:
+>    - You'll want to loop through each file in `Elements` and create a relative symlink in the `CDS` directory pointing to it.
+>    - You can use a shell loop for this. Assuming you're in the parent directory of both `CDS` and `Elements`, the commands would look something like this:
+>
+>    ```bash
+>    for file in Elements/*; do
+>        ln -s ../$file CDS/
+>    done
+>    ```
+>
+>    Let's break this down:
+>    - `for file in Elements/*; do`: This starts a loop over all files in the `Elements` directory.
+>    - `ln -s ../$file CDS/`: This creates a symbolic link in the `CDS` directory. The `../` is used to ensure the path is relative, pointing back to the `Elements` directory.
+>    - `done`: This ends the loop.
+>
+>After running these commands, the `CDS` directory should contain symlinks to all files in the `Elements` directory. These symlinks are relative, meaning they should continue to work as long as the relative positions of `CDS`, `Elements`, and their parent directory don't change.
+>
+>Remember that these symlinks are just pointers to the files in `Elements`, not copies. Any changes made to the files via the `CDS` directory symlinks will actually be affecting the files in the `Elements` directory.
 
