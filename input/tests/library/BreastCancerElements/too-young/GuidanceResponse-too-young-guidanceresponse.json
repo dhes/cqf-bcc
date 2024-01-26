@@ -1,6 +1,6 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "should-not-screen-6",
+  "id": "too-young-guidanceresponse",
   "contained": [
     {
       "resourceType": "CarePlan",
@@ -11,7 +11,7 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/up-to-date"
+        "reference": "Patient/too-young"
       },
       "activity": [
         {
@@ -27,29 +27,24 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "This patient had a mammogram less that two years ago. The date of her most recent mammogram was 2024-01-01"
+          "valueMarkdown": "This patient is too young for breast cancer screening. "
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Up to date. "
+        "text": "Too young"
       },
       "subject": {
-        "reference": "Patient/up-to-date"
-      },
-      "supportingInfo": [
-        {
-          "reference": "Observation/mammogram-up-to-date"
-        }
-      ]
+        "reference": "Patient/too-young"
+      }
     }
   ],
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/up-to-date"
+    "reference": "Patient/too-young"
   },
   "result": {
     "reference": "#expected"

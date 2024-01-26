@@ -1,13 +1,13 @@
 {
   "resourceType": "Encounter",
-  "id": "recent",
+  "id": "male-encounter",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
     ]
   },
   "subject": {
-    "reference": "Patient/too-young"
+    "reference": "Patient/male"
   },
   "status": "finished",
   "class": {

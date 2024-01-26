@@ -1,55 +1,50 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "should-screen-5",
+  "id": "male-guidanceresponse",
   "contained": [
     {
       "resourceType": "CarePlan",
       "id": "expected",
       "instantiatesCanonical": [
-        "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS"
+        "http://fhir.org/guides/cqf/Breast/PlanDefinition/BreastCancerScreeningCDS"
       ],
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/overdue"
+        "reference": "Patient/male"
       },
       "activity": [
         {
           "reference": {
-            "reference": "#screening-recommended"
+            "reference": "#screening-not-recommended"
           }
         }
       ]
     },
     {
       "resourceType": "ServiceRequest",
-      "id": "screening-recommended",
+      "id": "screening-not-recommended",
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient meets the inclusion criteria for breast cancer screening and is due, because the most recent mammogram was performed on 2021-12-01, more that two years ago"
+          "valueMarkdown": "Males do not meet inclusion criteria for breast cancer screening"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Breast Cancer Screening Recommended"
+        "text": "Breast Cancer Screening Not Recommended"
       },
       "subject": {
-        "reference": "Patient/overdue"
-      },
-      "supportingInfo": [
-        {
-          "reference": "Observation/mammogram-overdue"
-        }
-      ]
+        "reference": "Patient/male"
+      }
     }
   ],
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/overdue"
+    "reference": "Patient/male"
   },
   "result": {
     "reference": "#expected"

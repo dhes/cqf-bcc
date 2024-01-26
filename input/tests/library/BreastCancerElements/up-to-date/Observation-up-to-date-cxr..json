@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "non-mammogram-imaging", 
+  "id": "up-to-date-cxr", 
   "meta": {
     "extension": [
       {

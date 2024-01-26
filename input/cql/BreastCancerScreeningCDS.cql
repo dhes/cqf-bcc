@@ -50,8 +50,8 @@ define "Woman":
 define "Age":
   AgeInYears()
 
-define "Woman aged 50 to 74 y inclusive":
-  BCE.Woman and BCE."aged 50 to 74 y inclusive"
+define "Woman aged 50 to 74 years inclusive":
+  BCE.Woman and BCE."aged 50 to 74 years inclusive"
 
 // define "Is Recommendation Applicable":
 //   BCE."Is female"
@@ -82,29 +82,15 @@ define "Months elapsed":
 // define "Mammogram status":
 // // if Count(X) > 0 then X[1] else 0
 //   if 
-//     "Woman aged 50 to 74 y inclusive" 
+//     "Woman aged 50 to 74 years inclusive" 
 //     and BCE."Mammogram within 24 months" 
 //   then 'mammogram up to date'
 //   else 'mammogram due'
 
 define "Recommendation is applicable": //"applicible" in the sense that this patient is eligible and due. 
-  // if "Is Recommendation Applicable" then
-  //   'Recommend appropriate breast cancer screening'
-  // else
-  //   'Patient has appropriate breast cancer screening'
-  // "Mammogram status"
-  // if 
-    "Woman aged 50 to 74 y inclusive" 
-    and not Excluded
+    "Woman aged 50 to 74 years inclusive" 
+    and not Excluded // with bilateral mastectomy or eventually "Has breast cancer"
     and not BCE."Mammogram within 24 months"
-    // and not "Has breast cancer" // eventually...
-  // then 'mammogram due'
-  // else null
-  // case 
-  //   when "Woman aged 50 to 74 y inclusive" and BCE."Mammogram within 24 months" then 'mammogram up to date'
-  //   when "Woman aged 50 to 74 y inclusive" and not BCE."Mammogram within 24 months" then 'mammogram due'
-  //   else ''
-  // end
 
 define "Get Card Summary":
   if "Recommendation is applicable" then

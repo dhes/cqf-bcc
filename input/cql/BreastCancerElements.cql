@@ -56,19 +56,20 @@ define Age:
 // These revisions align the CQL variables with USPSTF language
 // ...new...
 // CDS version
-define "aged 50 to 74 y inclusive":
+define "aged 50 to 74 years inclusive": 
   Age between 50 and 74 // `between` is inclusive
+
 // CQM version
-define "aged 52 to 74 y inclusive": // AKA "Initial Population"
+define "aged 52 to 74 years inclusive": // AKA "Initial Population"
   Age between 52 and 74 // `between` is inclusive
 
 //...new...
 // ...CDS...
-// define "Woman aged 50 to 74 y inclusive":
-//   Woman and "aged 50 to 74 y inclusive"
+// define "Woman aged 50 to 74 years inclusive":
+//   Woman and "aged 50 to 74 years inclusive"
 // ...CQM...
-// define "Woman aged 52 to 74 y inclusive":
-//   Woman and "aged 52 to 74 y inclusive"
+// define "Woman aged 52 to 74 years inclusive":
+//   Woman and "aged 52 to 74 years inclusive"
 
 // define AsOf:
 //   end of "Measurement Period"

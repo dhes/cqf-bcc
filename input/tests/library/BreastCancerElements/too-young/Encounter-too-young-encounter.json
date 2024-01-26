@@ -1,13 +1,13 @@
 {
   "resourceType": "Encounter",
-  "id": "recent",
+  "id": "too-young-encounter",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
     ]
   },
   "subject": {
-    "reference": "Patient/up-to-date"
+    "reference": "Patient/too-young"
   },
   "status": "finished",
   "class": {
