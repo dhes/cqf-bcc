@@ -1,6 +1,6 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "inactive-guidanceresponse",
+  "id": "deceased-guidanceresponse",
   "contained": [
     {
       "resourceType": "CarePlan",
@@ -11,7 +11,7 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/inactive"
+        "reference": "Patient/deceased"
       },
       "activity": [
         {
@@ -37,11 +37,11 @@
         "text": "Breast Cancer Screening Recommended"
       },
       "subject": {
-        "reference": "Patient/inactive"
+        "reference": "Patient/deceased"
       },
       "supportingInfo": [
         {
-          "reference": "Observation/inactive-mammogram"
+          "reference": "Observation/deceased-mammogram"
         }
       ]
     }
@@ -49,7 +49,7 @@
   "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/inactive"
+    "reference": "Patient/deceased"
   },
   "result": {
     "reference": "#expected"

@@ -41,7 +41,7 @@
       },
       "supportingInfo": [
         {
-          "reference": "Observation/mammogram-overdue"
+          "reference": "Observation/overdue-mammogram"
         }
       ]
     }

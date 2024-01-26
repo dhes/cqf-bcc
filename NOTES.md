@@ -69,3 +69,17 @@ This is from ChatGPT:
 >
 >Remember that these symlinks are just pointers to the files in `Elements`, not copies. Any changes made to the files via the `CDS` directory symlinks will actually be affecting the files in the `Elements` directory.
 
+In my case I guess this would mean I `cd` to `input/tests/library` and run
+
+```
+for file in BreastCancerElements/*; do
+    ln -s ../$file BreastCancerScreeningCDS/
+done
+```
+
+Or maybe more like this. Once again with pwd as `input\tests\library`:
+
+```
+find BreastCancerElements -type d -mindepth 1 -maxdepth 1 -exec sh -c '(cd BreastCancerScreeningCDS && ln -s "../$0" "$(basename "$0")")' {} \;
+```
+That works fine! 
