@@ -88,9 +88,11 @@ define "Months elapsed":
 //   else 'mammogram due'
 
 define "Recommendation is applicable": //"applicible" in the sense that this patient is eligible and due. 
-    "Woman aged 50 to 74 years inclusive" 
-    and not Excluded // with bilateral mastectomy or eventually "Has breast cancer"
-    and not BCE."Mammogram within 24 months"
+  "Alive"
+	and "Active"
+  and "Woman aged 50 to 74 years inclusive" 
+  and not Excluded // with bilateral mastectomy or eventually "Has breast cancer"
+  and not BCE."Mammogram within 24 months"
 
 define "Get Card Summary":
   if "Recommendation is applicable" then

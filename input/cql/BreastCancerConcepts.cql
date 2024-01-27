@@ -3,7 +3,9 @@ library BreastCancerConcepts version '0.1.0'
 using FHIR version '4.0.1'
 
 // valueset "Female Gender": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2'
-valueset "Bilateral Mastectomy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005'
+valueset "Bilateral Mastectomy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005' // this valueset contains ICD10PCS and SNOMET codes but no CPT. Its total colectomy companion in cqf-ccc contains all three. That's a problem. To see for yourself search VASC for `mastectomy` with steward = NCQA and code system = [ICD10PCS, SNOMEDCT and CPT]. The only group with CPT codes are unilateral mastectomy. 
+// Here is a design decision. I will consider CPT codes not essential because the use case is a primary care office, which does not perform mastectomies and therefore would not have use for the CPT code. 
+// If that is acceptable then the above "Bilaterl Mastectomy" valueset is sufficient. Because ICD10 is more familiar to most US realm physicians I will use ICD10PCS code in the text examples. 
 valueset "History of bilateral mastectomy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068'
 valueset "Unilateral Mastectomy Left": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1133'
 valueset "Left Mastectomy Diagnosis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069'
