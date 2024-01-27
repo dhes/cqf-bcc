@@ -41,7 +41,7 @@
       },
       "supportingInfo": [
         {
-          "reference": "Observation/mammogram-up-to-date"
+          "reference": "Observation/up-to-date-mammogram"
         }
       ]
     }
