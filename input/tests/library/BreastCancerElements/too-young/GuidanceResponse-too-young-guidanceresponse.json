@@ -6,7 +6,7 @@
       "resourceType": "CarePlan",
       "id": "expected",
       "instantiatesCanonical": [
-        "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS"
+        "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS"
       ],
       "status": "draft",
       "intent": "proposal",
@@ -41,7 +41,7 @@
       }
     }
   ],
-  "moduleCanonical": "http://fhir.org/guides/cqf/bcc/PlanDefinition/BreastCancerScreeningCDS",
+  "moduleCanonical": "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
     "reference": "Patient/too-young"

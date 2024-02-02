@@ -184,19 +184,19 @@
     "relatedArtifact": [ {
       "type": "depends-on",
       "display": "Library BCE",
-      "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerElements"
+      "resource": "http://fhir.org/guides/dhes/bcc/Library/BreastCancerElements"
     }, {
       "type": "depends-on",
       "display": "Library Bx",
-      "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerConcepts"
+      "resource": "http://fhir.org/guides/dhes/bcc/Library/BreastCancerConcepts"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
-      "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRHelpers|4.0.1"
+      "resource": "http://fhir.org/guides/dhes/bcc/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Library FC",
-      "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRCommon|4.0.1"
+      "resource": "http://fhir.org/guides/dhes/bcc/Library/FHIRCommon|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Value set Mammography",
@@ -255,7 +255,7 @@
       "reference": "#effective-data-requirements"
     }
   } ],
-  "url": "http://fhir.org/guides/cqf/bcc/Measure/BreastCancerScreeningCQM",
+  "url": "http://fhir.org/guides/dhes/bcc/Measure/BreastCancerScreeningCQM",
   "version": "0.1.0",
   "name": "BreastCancerScreeningCQM",
   "title": "Breast Cancer Screening CQM",
@@ -270,7 +270,7 @@
     "start": "2022-01-01",
     "end": "2022-12-31"
   },
-  "library": [ "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCQM" ],
+  "library": [ "http://fhir.org/guides/dhes/bcc/Library/BreastCancerScreeningCQM" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {

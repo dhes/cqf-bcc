@@ -1,6 +1,6 @@
 {
   "resourceType": "GuidanceResponse",
-  "id": "inactive-guidanceresponse",
+  "id": "up-to-date-guidanceresponse",
   "contained": [
     {
       "resourceType": "CarePlan",
@@ -11,37 +11,37 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/inactive"
+        "reference": "Patient/up-to-date"
       },
       "activity": [
         {
           "reference": {
-            "reference": "#screening-recommended"
+            "reference": "#screening-not-recommended"
           }
         }
       ]
     },
     {
       "resourceType": "ServiceRequest",
-      "id": "screening-recommended",
+      "id": "screening-not-recommended",
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient meets the inclusion criteria for breast cancer screening and is due, because the most recent mammogram was performed on 2021-12-01, more that two years ago"
+          "valueMarkdown": "This patient had a mammogram less that two years ago. The date of her most recent mammogram was 2024-01-01"
         }
       ],
       "status": "draft",
       "intent": "proposal",
       "doNotPerform": true,
       "code": {
-        "text": "Breast Cancer Screening Recommended"
+        "text": "Up to date. "
       },
       "subject": {
-        "reference": "Patient/inactive"
+        "reference": "Patient/up-to-date"
       },
       "supportingInfo": [
         {
-          "reference": "Observation/inactive-mammogram"
+          "reference": "Observation/up-to-date-mammogram"
         }
       ]
     }
@@ -49,7 +49,7 @@
   "moduleCanonical": "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/inactive"
+    "reference": "Patient/up-to-date"
   },
   "result": {
     "reference": "#expected"

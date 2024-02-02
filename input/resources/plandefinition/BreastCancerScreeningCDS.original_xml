@@ -54,21 +54,21 @@
 		</condition>
 		<!-- dynamic card elements -->
 		<dynamicValue>
-			<path value="$this"/>
+			<path value="action.description"/>
 			<expression>
 				<language value="text/cql-identifier"/>
 				<expression value="Get Card Detail"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
-			<path value="$this"/>
+			<path value="action.title"/>
 			<expression>
 				<language value="text/cql-identifier"/>
 				<expression value="Get Card Summary"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
-			<path value="$this"/>
+			<path value="action.extension"/>
 			<expression>
 				<language value="text/cql-identifier"/>
 				<expression value="Get Card Indicator"/>

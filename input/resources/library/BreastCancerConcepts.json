@@ -7,7 +7,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerConcepts",
+  "url": "http://fhir.org/guides/dhes/bcc/Library/BreastCancerConcepts",
   "version": "0.1.0",
   "name": "BreastCancerConcepts",
   "relatedArtifact": [ {

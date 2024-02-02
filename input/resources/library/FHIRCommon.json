@@ -7,7 +7,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://fhir.org/guides/cqf/bcc/Library/FHIRCommon",
+  "url": "http://fhir.org/guides/dhes/bcc/Library/FHIRCommon",
   "version": "4.0.1",
   "name": "FHIRCommon",
   "relatedArtifact": [ {
@@ -17,7 +17,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRHelpers|4.0.1"
+    "resource": "http://fhir.org/guides/dhes/bcc/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",

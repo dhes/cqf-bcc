@@ -7,7 +7,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCQM",
+  "url": "http://fhir.org/guides/dhes/bcc/Library/BreastCancerScreeningCQM",
   "version": "0.1.0",
   "name": "BreastCancerScreeningCQM",
   "relatedArtifact": [ {
@@ -17,19 +17,19 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRHelpers|4.0.1"
+    "resource": "http://fhir.org/guides/dhes/bcc/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Library BCE",
-    "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerElements"
+    "resource": "http://fhir.org/guides/dhes/bcc/Library/BreastCancerElements"
   }, {
     "type": "depends-on",
     "display": "Library Bx",
-    "resource": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerConcepts"
+    "resource": "http://fhir.org/guides/dhes/bcc/Library/BreastCancerConcepts"
   }, {
     "type": "depends-on",
     "display": "Library FC",
-    "resource": "http://fhir.org/guides/cqf/bcc/Library/FHIRCommon|4.0.1"
+    "resource": "http://fhir.org/guides/dhes/bcc/Library/FHIRCommon|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Code system ConditionVerificationStatusCodes",
