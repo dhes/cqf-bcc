@@ -38,21 +38,21 @@
       ],
       "dynamicValue": [
         {
-          "path": "$this",
+          "path": "action.description",
           "expression": {
             "expression": "Get Card Detail",
             "language": "text/cql-identifier"
           }
         },
         {
-          "path": "$this",
+          "path": "action.title",
           "expression": {
             "expression": "Get Card Summary",
             "language": "text/cql-identifier"
           }
         },
         {
-          "path": "$this",
+          "path": "action.priority",
           "expression": {
             "expression": "Get Card Indicator",
             "language": "text/cql-identifier"

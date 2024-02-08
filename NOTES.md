@@ -199,3 +199,119 @@ curl -d "@bundles/BreastCancerScreeningCDS-valuesets.json" -H "Content-Type: app
 ```
 
 That seemed to go well. 
+
+Rerunning the $apply operation:
+```
+http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply?subject=Patient/heslinga-dan
+```
+this time yields a CarePlan (without errors)
+```
+{
+  "resourceType": "CarePlan",
+  "id": "BreastCancerScreeningCDS",
+  "contained": [ {
+    "resourceType": "RequestGroup",
+    "id": "BreastCancerScreeningCDS",
+    "instantiatesCanonical": [ "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS|0.1.0" ],
+    "status": "draft",
+    "intent": "proposal",
+    "subject": {
+      "reference": "Patient/heslinga-dan"
+    }
+  } ],
+  "instantiatesCanonical": [ "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS|0.1.0" ],
+  "status": "draft",
+  "intent": "proposal",
+  "subject": {
+    "reference": "Patient/heslinga-dan"
+  },
+  "activity": [ {
+    "reference": {
+      "reference": "#RequestGroup/BreastCancerScreeningCDS"
+    }
+  } ]
+}
+```
+
+I wonder what I would get with a female patient. All patients on the server at present are male. Let's upload one of the female test patients. I created a new test patient from bcc-CQL-Testing-Framework.
+```
+curl -d "@bundles/overdue-bundle.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+
+Whooopee! We have a response with a `CarePlan` containe a `RequestGroup` with an `action` attribute with all of the appropriate `title`, `description` and `documentation`and `condition` attributes. But don't get too excited. There are errors. 
+
+```{
+  "resourceType": "CarePlan",
+  "id": "BreastCancerScreeningCDS",
+  "contained": [ {
+    "resourceType": "RequestGroup",
+    "id": "BreastCancerScreeningCDS",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-messages",
+      "valueReference": {
+        "reference": "#apply-outcome-BreastCancerScreeningCDS"
+      }
+    } ],
+    "instantiatesCanonical": [ "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS|0.1.0" ],
+    "status": "draft",
+    "intent": "proposal",
+    "subject": {
+      "reference": "Patient/309"
+    },
+    "action": [ {
+      "title": "Breast Cancer Screening",
+      "description": "The U.S. Preventive Services Task Force (2016) recommends screening for Breast cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016).",
+      "documentation": [ {
+        "type": "documentation",
+        "display": "U.S. Preventive Services Task Force Final Recommendation Statement Breast Cancer: Screening",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"
+      } ],
+      "condition": [ {
+        "kind": "applicability",
+        "expression": {
+          "language": "text/cql-identifier",
+          "expression": "Due for screening mammogram"
+        }
+      } ]
+    } ]
+  }, {
+    "resourceType": "OperationOutcome",
+    "id": "apply-outcome-BreastCancerScreeningCDS",
+    "issue": [ {
+      "severity": "error",
+      "code": "exception",
+      "diagnostics": "DynamicValue expression Get Card Detail encountered exception: Unable to resolve path $this."
+    }, {
+      "severity": "error",
+      "code": "exception",
+      "diagnostics": "DynamicValue expression Get Card Summary encountered exception: Unable to resolve path $this."
+    }, {
+      "severity": "error",
+      "code": "exception",
+      "diagnostics": "DynamicValue expression Get Card Indicator encountered exception: Unable to resolve path $this."
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-messages",
+    "valueReference": {
+      "reference": "#apply-outcome-BreastCancerScreeningCDS"
+    }
+  } ],
+  "instantiatesCanonical": [ "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS|0.1.0" ],
+  "status": "draft",
+  "intent": "proposal",
+  "subject": {
+    "reference": "Patient/309"
+  },
+  "activity": [ {
+    "reference": {
+      "reference": "#RequestGroup/BreastCancerScreeningCDS"
+    }
+  } ]
+}
+```
+
+Post an updated plandefinition to try to address this error. 
+```
+curl -d "@bundles/BreastCancerScreeningCDS-plan-definition.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
