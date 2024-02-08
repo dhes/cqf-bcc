@@ -5,7 +5,7 @@ using FHIR version '4.0.1'
 include FHIRHelpers version '4.0.1'
 include FHIRCommon version '4.0.1' called FC
 
-include BreastCancerElements called BCE
+// include BreastCancerElements called BCE
 include BreastCancerConcepts called Bx
 
 // QUESTION: Should this be a single timepoint, or is a period required?

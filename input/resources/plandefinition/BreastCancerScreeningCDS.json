@@ -24,7 +24,7 @@
         {
           "kind": "applicability",
           "expression": {
-            "expression": "Recommendation is applicable",
+            "expression": "Due for screening mammogram",
             "language": "text/cql-identifier"
           }
         }

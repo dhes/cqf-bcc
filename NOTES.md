@@ -83,3 +83,119 @@ Or maybe more like this. Once again with pwd as `input\tests\library`:
 find BreastCancerElements -type d -mindepth 1 -maxdepth 1 -exec sh -c '(cd BreastCancerScreeningCDS && ln -s "../$0" "$(basename "$0")")' {} \;
 ```
 That works fine! 
+
+2024-02-06
+
+Let's try to load the current libraries to the HAPI server. 
+
+```
+curl -d "@input/resources/library/BreastCancerConcepts.json" -H "Content-Type: application/json" -X POST http://localhost:8080/r4/cds/fhir
+```
+and
+```
+curl -d "@input/resources/library/BreastCancerScreeningCDS.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+and
+```
+curl -d "@input/resources/plandefinition/BreastCancerScreeningCDS.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+
+Running the first one produces: 
+```
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "HAPI-0450: Failed to parse request body as JSON resource. Error was: HAPI-1814: Incorrect resource type found, expected \"Bundle\" but found \"Library\""
+  } ]
+}
+```
+Guess I need to put it in a bundle. I see a bundle folder but nothing useful in it, even after running _refresh. Let's try `bash _genonce.sh`
+
+Try this:
+
+```
+curl -d "@bundles/BreastCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+That worked. Now what shows up on the server? It's there. 
+
+Try:
+```
+curl -d "@bundles/BreastCancerScreeningCDS-plan-definition.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+
+That worked too. 
+
+2024-02-07
+
+Having uploaded that stuff, querying like this
+```
+http://localhost:8080/fhir/PlanDefinition/BreastCancerConcepts/$apply?subject=Patient/heslinga-dan
+```
+returns
+```
+{
+  "resourceType": "CarePlan",
+  "id": "BreastCancerConcepts",
+  "contained": [ {
+    "resourceType": "RequestGroup",
+    "id": "BreastCancerConcepts",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-messages",
+      "valueReference": {
+        "reference": "#apply-outcome-BreastCancerConcepts"
+      }
+    } ],
+    "instantiatesCanonical": [ "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS|0.1.0" ],
+    "status": "draft",
+    "intent": "proposal",
+    "subject": {
+      "reference": "Patient/heslinga-dan"
+    }
+  }, {
+    "resourceType": "OperationOutcome",
+    "id": "apply-outcome-BreastCancerConcepts",
+    "issue": [ {
+      "severity": "error",
+      "code": "exception",
+      "diagnostics": "Condition expression Recommendation is applicable encountered exception: Could not resolve expression reference 'Recommendation is applicable' in library 'BreastCancerScreeningCDS'."
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-messages",
+    "valueReference": {
+      "reference": "#apply-outcome-BreastCancerConcepts"
+    }
+  } ],
+  "instantiatesCanonical": [ "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS|0.1.0" ],
+  "status": "draft",
+  "intent": "proposal",
+  "subject": {
+    "reference": "Patient/heslinga-dan"
+  },
+  "activity": [ {
+    "reference": {
+      "reference": "#RequestGroup/BreastCancerConcepts"
+    }
+  } ]
+}
+```
+Note the `Could not resolve expression reference 'Recommendation is applicable' in library 'BreastCancerScreeningCDS'`. Troubleshoot. 
+
+I had to delete the url PlanDefinition/BreastCancerConcepts. It should be PlanDefinition/BreastCancerScreening CDS. PUT a new PlanDefinition, again using
+```
+curl -d "@bundles/BreastCancerScreeningCDS-plan-definition.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+There's a PUT request in the bundle so it's idempotent. 
+
+Now again try the apply like so:
+```
+http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply?subject=Patient/heslinga-dan
+```
+Now I've assembled the three valueset in a bundle and will push them to the server. 
+```
+curl -d "@bundles/BreastCancerScreeningCDS-valuesets.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+```
+
+That seemed to go well. 
