@@ -21,8 +21,8 @@ so it will run on the current implementations.
 parameter "Null Patient.deceased assumed to mean alive" Boolean default false 
 
 parameter "Reference Date" DateTime 
-  // default  @2024-01-01T00:00:00-06:00
-  default Now()
+  // default  @2024-01-01T00:00:00-06:00 // for testing within this project
+  default Now() // for testing within a CQL Testing Framework project
 
 code "MG Breast Screening": '24606-6' from FC."LOINC" display 'MG Breast Screening' // AKA 2D mammogram
 code "DBT Breast - bilateral screening": '72142-3' from FC."LOINC" display 'DBT Breast - bilateral screening' // AKA 3D mammogram
@@ -127,18 +127,19 @@ define function MostRecent(observations List<Observation>, asOf DateTime):
       sort by start of FC.ToInterval(issued)
   )
 
-define "Most Recent Mammogram":
+define "Most recent mammogram":
   MostRecent("Mammography Performed", "Reference Date")
 
-define "Most recent mammogram":
-  date from "Most Recent Mammogram".issued
+define "Most recent mammogram date":
+  date from "Most recent mammogram".issued
 
 define "Months elapsed":
-  months between "Most Recent Mammogram".issued and "Reference Date"
+  months between "Most recent mammogram date" and "Reference Date"
 
 define "Mammogram within 24 months":
   exists "Mammography Performed" P
-  where P.issued >= ("Reference Date" - 2 years)
+  // where P.issued >= ("Reference Date" - 2 years)
+  where "Months elapsed" > 24
 
 define "Due for screening mammogram": //"applicible" in the sense that this patient is eligible and due. 
   "Alive"
@@ -168,7 +169,7 @@ define "Get Card Detail":
 define Rationale:
   if "Due for screening mammogram"
   then Coalesce({
-    ' the most recent mammogram performed on ' + ToString(date from "Most Recent Mammogram".issued) + '.',
+    ' the most recent mammogram performed on ' + ToString(date from "Most recent mammogram date") + '.',
     ' no mammogram on file'
   })
   else null

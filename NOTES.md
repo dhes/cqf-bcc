@@ -315,3 +315,8 @@ Post an updated plandefinition to try to address this error.
 ```
 curl -d "@bundles/BreastCancerScreeningCDS-plan-definition.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
 ```
+So now I have a fresh download of the hipa jpaserver. Of course it has no Plandefinition resources. I'l try uploading the cqf-ccc CDS bundle and see what I get. (from the cql-ccc root!)
+```
+curl -d "@bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+
+```
