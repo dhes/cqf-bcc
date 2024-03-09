@@ -1,0 +1,1 @@
+File appended with .original_ were copied from cqf-ccc and modified only by replacing colorectal cancer screening terms with breast cancer screening terms. The final .xml and .json files were structurally altered based on what I perceived to be errors of construction. The dynamicValue elements are shown as possessing path = $this elements rather that path.action.description. 

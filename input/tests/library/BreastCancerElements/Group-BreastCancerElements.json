@@ -1,0 +1,47 @@
+{
+  "resourceType": "Group",
+  "id": "BreastCancerElements",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/BreastCancerElements"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/mastectomy",
+      "display": "Frances Dormand"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/up-to-date",
+      "display": "Dorothy Dere"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/deceased",
+      "display": "Frances Dormand"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/inactive",
+      "display": "Frances Dormand"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/too-young",
+      "display": "Jane Doodle"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/male",
+      "display": "Walter Doodle"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/overdue",
+      "display": "Frances Dormand"
+    }
+  } ]
+}

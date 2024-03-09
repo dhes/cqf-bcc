@@ -117,7 +117,7 @@
         }
       ],
       "library": [
-        "http://fhir.org/guides/dhes/bcc/Library/BreastCancerScreeningCDS"
+        "http://fhir.org/guides/dhes/cqf/Library/BreastCancerScreeningCDS"
       ],
       "extension": [
         {

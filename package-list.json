@@ -1,7 +1,7 @@
 {
   "package-id": "fhir.cqf.bcc",
   "title": "Breast Cancer Data Elements",
-  "canonical": "http://fhir.org/guides/dhes/bcc",
+  "canonical": "http://fhir.org/guides/cqf/bcc",
   "introduction": "An example content implementation guide that illustrates a CPG-on-FHIR approach to knowledge engineering applied to Breast Cancer Screening.",
   "list": [
     {

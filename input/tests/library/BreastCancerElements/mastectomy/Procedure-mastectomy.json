@@ -26,15 +26,6 @@
       "actor": {
         "reference": "Practitioner/example-surgeon",
         "display": "Dr. Jane Doe"
-      },
-      "role": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-            "code": "01",
-            "display": "Surgeon"
-          }
-        ]
       }
     }
   ]
