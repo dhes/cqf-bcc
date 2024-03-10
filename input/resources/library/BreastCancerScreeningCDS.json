@@ -62,6 +62,7 @@
       "reference": "#options"
     }
   } ],
+  "url": "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCDS",
   "version": "0.1.0",
   "name": "BreastCancerScreeningCDS",
   "status": "active",

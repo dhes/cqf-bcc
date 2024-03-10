@@ -40,7 +40,7 @@
     ]
   },
   "library": [
-    "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCDS|0.1.0"
+    "http://fhir.org/guides/cqf/bcc/Library/BreastCancerScreeningCDS"
   ],
   "action": [
     {
