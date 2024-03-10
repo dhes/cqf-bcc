@@ -139,7 +139,7 @@ define "Months elapsed":
 define "Mammogram within 24 months":
   exists "Mammography Performed" P
   // where P.issued >= ("Reference Date" - 2 years)
-  where "Months elapsed" > 24
+  where "Months elapsed" <= 24
 
 define "Due for screening mammogram": //"applicible" in the sense that this patient is eligible and due. 
   "Alive"

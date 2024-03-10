@@ -5,8 +5,8 @@
   "title": "Breast Cancer Screening CDS",
   "description": "Breast Cancer Screening CDS",
   "status": "draft",
-  "experimental": true,
   "date": "2024-02-08",
+  "experimental": true,
   "meta": {
     "profile": [
       "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"
@@ -34,8 +34,8 @@
     "coding": [
       {
         "code": "eca-rule",
-        "display": "ECA Rule",
-        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type"
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "display": "ECA Rule"
       }
     ]
   },
@@ -53,12 +53,6 @@
           "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"
         }
       ],
-      "trigger": [
-        {
-          "name": "patient-view",
-          "type": "named-event"
-        }
-      ],
       "condition": [
         {
           "kind": "applicability",
@@ -68,18 +62,24 @@
           }
         }
       ],
-      "dynamicValue": [
+      "trigger": [
         {
-          "path": "action.description",
-          "expression": {
-            "expression": "Get Card Detail",
-            "language": "text/cql-identifier"
-          }
-        },
+          "name": "patient-view",
+          "type": "named-event"
+        }
+      ],
+      "dynamicValue": [
         {
           "path": "action.title",
           "expression": {
             "expression": "Get Card Summary",
+            "language": "text/cql-identifier"
+          }
+        },
+        {
+          "path": "action.description",
+          "expression": {
+            "expression": "Get Card Detail",
             "language": "text/cql-identifier"
           }
         },
@@ -89,6 +89,14 @@
             "expression": "Get Card Indicator",
             "language": "text/cql-identifier"
           }
+        }
+      ],
+      "action": [
+        {
+          "description": "Order mammogram"
+        },
+        {
+          "description": "Mammogram not ordered"
         }
       ]
     }

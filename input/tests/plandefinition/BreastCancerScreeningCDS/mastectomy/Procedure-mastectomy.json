@@ -1,0 +1,24 @@
+{
+  "resourceType": "Procedure",
+  "id": "mastectomy-mastectomy",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+    ]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "17086001",
+        "display": "Modified radical mastectomy, bilateral (procedure)"
+      }
+    ],
+    "text": "Modified radical mastectomy, bilateral (procedure)"
+  },
+  "subject": {
+    "reference": "Patient/mastectomy"
+  },
+  "performedDateTime": "2022-01-01"
+}

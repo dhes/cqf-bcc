@@ -2,5 +2,5 @@ This is my cqf-bcc. It is modeled after cqf-bcc. I have started with the eCQI re
 
 To load to HAPI FHIR JPA server, execute this at the command line. 
 ```
-curl -d "@bundles/BreastCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
+curl -d "@bundles/plandefinition/BreastCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST http://localhost:8080/fhir
 ```
