@@ -40,7 +40,7 @@
     "text": "Findings"
   },
   "subject": {
-    "reference": "Patient/up-to-date"
+    "reference": "Patient/bcs-up-to-date"
   },
   "effectiveDateTime": "2019-02-03T19:43:30.000Z",
   "issued": "2019-02-03T19:43:30.000Z",

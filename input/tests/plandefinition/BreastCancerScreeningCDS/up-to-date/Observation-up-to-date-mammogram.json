@@ -40,7 +40,7 @@
     "text": "MG Breast Screening"
   },
   "subject": {
-    "reference": "Patient/up-to-date"
+    "reference": "Patient/bcs-up-to-date"
   },
   "effectiveDateTime": "2024-01-01T00:00:00+00:00",
   "issued": "2024-01-01T00:00:00+00:00",

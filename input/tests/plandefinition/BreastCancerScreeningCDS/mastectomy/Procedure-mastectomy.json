@@ -18,7 +18,7 @@
     "text": "Modified radical mastectomy, bilateral (procedure)"
   },
   "subject": {
-    "reference": "Patient/mastectomy"
+    "reference": "Patient/bcs-mastectomy"
   },
   "performedDateTime": "2022-01-01"
 }

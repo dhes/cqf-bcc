@@ -40,7 +40,7 @@
     "text": "Findings"
   },
   "subject": {
-    "reference": "Patient/mastectomy"
+    "reference": "Patient/bcs-mastectomy"
   },
   "encounter": {
     "display": "ER Visit"

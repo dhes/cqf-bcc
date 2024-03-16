@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/mastectomy"
+    "reference": "Patient/bcs-mastectomy"
   },
   "status": "finished",
   "class": {

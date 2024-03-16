@@ -40,7 +40,7 @@
     "text": "Findings"
   },
   "subject": {
-    "reference": "Patient/overdue"
+    "reference": "Patient/bcs-overdue"
   },
   "encounter": {
     "display": "ER Visit"

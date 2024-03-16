@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/male"
+    "reference": "Patient/bcs-male"
   },
   "status": "finished",
   "class": {

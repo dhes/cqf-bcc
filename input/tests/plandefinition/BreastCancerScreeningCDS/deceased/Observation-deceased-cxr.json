@@ -40,7 +40,7 @@
     "text": "Findings"
   },
   "subject": {
-    "reference": "Patient/deceased"
+    "reference": "Patient/bcs-deceased"
   },
   "encounter": {
     "display": "ER Visit"

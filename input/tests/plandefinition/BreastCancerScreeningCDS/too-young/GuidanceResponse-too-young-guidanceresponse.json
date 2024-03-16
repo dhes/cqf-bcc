@@ -11,7 +11,7 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/too-young"
+        "reference": "Patient/bcs-too-young"
       },
       "activity": [
         {
@@ -37,14 +37,14 @@
         "text": "Too young"
       },
       "subject": {
-        "reference": "Patient/too-young"
+        "reference": "Patient/bcs-too-young"
       }
     }
   ],
   "moduleCanonical": "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/too-young"
+    "reference": "Patient/bcs-too-young"
   },
   "result": {
     "reference": "#expected"

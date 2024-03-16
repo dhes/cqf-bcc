@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/deceased"
+    "reference": "Patient/bcs-deceased"
   },
   "status": "finished",
   "class": {

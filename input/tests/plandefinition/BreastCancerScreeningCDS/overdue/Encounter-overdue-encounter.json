@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/overdue"
+    "reference": "Patient/bcs-overdue"
   },
   "status": "finished",
   "class": {

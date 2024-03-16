@@ -7,7 +7,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/too-young"
+    "reference": "Patient/bcs-too-young"
   },
   "status": "finished",
   "class": {

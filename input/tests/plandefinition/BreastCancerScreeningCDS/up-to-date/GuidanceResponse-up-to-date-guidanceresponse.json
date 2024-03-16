@@ -11,7 +11,7 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/up-to-date"
+        "reference": "Patient/bcs-up-to-date"
       },
       "activity": [
         {
@@ -37,7 +37,7 @@
         "text": "Up to date"
       },
       "subject": {
-        "reference": "Patient/up-to-date"
+        "reference": "Patient/bcs-up-to-date"
       },
       "supportingInfo": [
         {
@@ -148,7 +148,7 @@
   "moduleCanonical": "#up-to-date-plandefinition",
   "status": "success",
   "subject": {
-    "reference": "Patient/up-to-date"
+    "reference": "Patient/bcs-up-to-date"
   },
   "result": {
     "reference": "#expected"

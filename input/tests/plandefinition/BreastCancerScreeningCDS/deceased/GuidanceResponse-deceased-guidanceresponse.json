@@ -11,7 +11,7 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/deceased"
+        "reference": "Patient/bcs-deceased"
       },
       "activity": [
         {
@@ -37,7 +37,7 @@
         "text": "Breast Cancer Screening Recommended"
       },
       "subject": {
-        "reference": "Patient/deceased"
+        "reference": "Patient/bcs-deceased"
       },
       "supportingInfo": [
         {
@@ -49,7 +49,7 @@
   "moduleCanonical": "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/deceased"
+    "reference": "Patient/bcs-deceased"
   },
   "result": {
     "reference": "#expected"

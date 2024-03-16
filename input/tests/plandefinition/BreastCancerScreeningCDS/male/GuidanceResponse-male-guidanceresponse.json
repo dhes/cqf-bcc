@@ -11,7 +11,7 @@
       "status": "draft",
       "intent": "proposal",
       "subject": {
-        "reference": "Patient/male"
+        "reference": "Patient/bcs-male"
       },
       "activity": [
         {
@@ -37,14 +37,14 @@
         "text": "Breast Cancer Screening Not Recommended"
       },
       "subject": {
-        "reference": "Patient/male"
+        "reference": "Patient/bcs-male"
       }
     }
   ],
   "moduleCanonical": "http://fhir.org/guides/dhes/bcc/PlanDefinition/BreastCancerScreeningCDS",
   "status": "success",
   "subject": {
-    "reference": "Patient/male"
+    "reference": "Patient/bcs-male"
   },
   "result": {
     "reference": "#expected"
