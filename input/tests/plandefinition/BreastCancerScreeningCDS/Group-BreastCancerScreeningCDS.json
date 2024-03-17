@@ -10,37 +10,37 @@
   "actual": true,
   "member": [ {
     "entity": {
-      "reference": "Patient/mastectomy",
+      "reference": "Patient/bcs-mastectomy",
       "display": "Frances Dormand"
     }
   }, {
     "entity": {
-      "reference": "Patient/up-to-date",
+      "reference": "Patient/bcs-up-to-date",
       "display": "Dorothy Dere"
     }
   }, {
     "entity": {
-      "reference": "Patient/deceased",
+      "reference": "Patient/bcs-deceased",
       "display": "Frances Dormand"
     }
   }, {
     "entity": {
-      "reference": "Patient/inactive",
+      "reference": "Patient/bcs-inactive",
       "display": "Frances Dormand"
     }
   }, {
     "entity": {
-      "reference": "Patient/too-young",
+      "reference": "Patient/bcs-too-young",
       "display": "Jane Doodle"
     }
   }, {
     "entity": {
-      "reference": "Patient/male",
+      "reference": "Patient/bcs-male",
       "display": "Walter Doodle"
     }
   }, {
     "entity": {
-      "reference": "Patient/overdue",
+      "reference": "Patient/bcs-overdue",
       "display": "Frances Dormand"
     }
   } ]

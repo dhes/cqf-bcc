@@ -2,7 +2,7 @@
   "resourceType": "PlanDefinition",
   "id": "BreastCancerScreeningCDS",
   "name": "BreastCancerScreeningCDS",
-  "title": "Breast Cancer Screening CDS",
+  "title": "Breast cancer screening",
   "description": "Breast Cancer Screening CDS",
   "status": "draft",
   "date": "2024-02-08",
