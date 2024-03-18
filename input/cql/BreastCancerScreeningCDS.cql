@@ -143,7 +143,7 @@ define "Mammogram within 24 months":
 
 define "Due for screening mammogram": //"applicible" in the sense that this patient is eligible and due. 
   "Alive"
-	and "Active"
+  and "Active"
   and "Woman aged 50 to 74 years inclusive" 
   and not Excluded // with bilateral mastectomy or has breast cancer
   and not "Mammogram within 24 months"
