@@ -21,7 +21,7 @@ so it will run on the current implementations.
 // parameter "Null Patient.deceased assumed to mean alive" Boolean default false 
 
 parameter "Reference Date" DateTime 
-  // default  @2024-01-01T00:00:00-06:00 // for testing within this project
+  // default  @2024-01-01T00:00:00-10:00 // for testing within this project
   default Now() // for testing within a CQL Testing Framework project
 
 code "MG Breast Screening": '24606-6' from FC."LOINC" display 'MG Breast Screening' // AKA 2D mammogram
