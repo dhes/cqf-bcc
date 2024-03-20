@@ -42,8 +42,8 @@
   "subject": {
     "reference": "Patient/bcs-deceased"
   },
-  "effectiveDateTime": "2021-12-01T00:00:00+00:00",
-  "issued": "2021-12-01T00:00:00+00:00",
+  "effectiveDateTime": "2021-12-01T00:00:00-10:00",
+  "issued": "2021-12-01T00:00:00-10:00",
   "valueCodeableConcept": {
     "coding": [
       {
