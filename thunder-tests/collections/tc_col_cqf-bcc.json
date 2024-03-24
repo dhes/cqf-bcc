@@ -1,0 +1,321 @@
+{
+    "_id": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+    "colName": "cqf-bcc",
+    "created": "2024-03-24T20:13:28.244Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d3b31844-d632-4f4d-83dc-22da81598453",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "POST PlanDefinition Bundle",
+            "url": "http://localhost:8080/fhir",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-24T20:13:28.247Z",
+            "modified": "2024-03-24T20:13:28.247Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "/Users/danheslinga/cqf-bcc/bundles/plandefinition/BreastCancerScreeningCDS/BreastCancerScreeningCDS-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8705a037-ecc8-453e-b177-a89998966ed3",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test overdue",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-24T20:13:28.249Z",
+            "modified": "2024-03-24T20:13:28.249Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-overdue\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action !== null;",
+                            "tc.test(\"Action Element is not null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c15df452-4567-4668-ba77-c675051680ad",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test up-to-date",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-24T20:13:28.250Z",
+            "modified": "2024-03-24T20:13:28.250Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-up-to-date\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c727249e-905f-4c58-8fdf-37374b9d0a32",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test too-young",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-03-24T20:13:28.251Z",
+            "modified": "2024-03-24T20:13:28.251Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-too-young\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7e1a3afe-a80d-4e8d-9bab-c4458d92ff24",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test mastectomy",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 45000,
+            "created": "2024-03-24T20:13:28.252Z",
+            "modified": "2024-03-24T20:13:28.252Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-mastectomy\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7b60fd68-c719-462b-bdfa-1b9cb9480291",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test male",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 42500,
+            "created": "2024-03-24T20:13:28.253Z",
+            "modified": "2024-03-24T20:13:28.253Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-male\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "4f53050c-a13e-4462-8d47-ee98a3f0f2f6",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test inactive",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 41250,
+            "created": "2024-03-24T20:13:28.254Z",
+            "modified": "2024-03-24T20:13:28.254Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-inactive\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "21c4951c-fba0-4d31-8f67-d7c81654c419",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test deceased",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 40625,
+            "created": "2024-03-24T20:13:28.255Z",
+            "modified": "2024-03-24T20:13:28.255Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-deceased\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
