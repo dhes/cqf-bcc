@@ -21,8 +21,8 @@ so it will run on the current implementations.
 // parameter "Null Patient.deceased assumed to mean alive" Boolean default false 
 
 parameter "Reference Date" DateTime 
-  // default  @2024-01-01// for testing with ExecuteCQL
-  default Today() // for testing within a CQL Testing Framework project
+  default  @2024-01-01// for testing with ExecuteCQL
+  // default Today() // for testing within a CQL Testing Framework project
 
 code "MG Breast Screening": '24606-6' from FC."LOINC" display 'MG Breast Screening' // AKA 2D mammogram
 code "DBT Breast - bilateral screening": '72142-3' from FC."LOINC" display 'DBT Breast - bilateral screening' // AKA 3D mammogram
@@ -69,7 +69,8 @@ define Woman:
   Patient.gender = 'female'
 
 define "Age":
-  AgeInYears()
+  // AgeInYears()
+  AgeInYearsAt("Reference Date")
 
 define "aged 50 to 74 years inclusive": 
   Age between 50 and 74 // `between` is inclusive
