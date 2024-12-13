@@ -42,3 +42,4 @@ _updatePublisher.bat
 _updatePublisher.sh
 bundles/
 input/tests/results/*
+.env
