@@ -316,6 +316,41 @@
                     }
                 ]
             }
+        },
+        {
+            "_id": "46b36295-a766-4d3d-8449-a65371e29b88",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists too-young",
+            "url": "Patient/bcs-too-young",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-12-13T22:32:43.055Z",
+            "modified": "2024-12-13T22:34:04.142Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
         }
     ],
     "settings": {
