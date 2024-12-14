@@ -20,8 +20,8 @@ Edges for testing
 |Gender null ||NA(1)||
 |Lower age + |base|just-old-enough||
 |Lower age - |base|too-young|true|
-|Upper age + |base|TODO||
-|Upper age - |base|TODO||
+|Upper age + |base|just-young-enough||
+|Upper age - |base|too-old|true|
 |Age null ||NA(1)||
 |Bilateral mastectomy -|base|mastectomy|true|
 |Breast cancer|base|TODO|true|
