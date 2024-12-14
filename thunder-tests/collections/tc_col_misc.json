@@ -1,0 +1,118 @@
+{
+    "_id": "e2673e83-cbb1-40a3-93ff-6c9bc671ec3f",
+    "colName": "misc",
+    "created": "2024-12-14T20:26:14.677Z",
+    "sortNum": 20000,
+    "folders": [],
+    "settings": {
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": "Basic {{HAPI_FHIR_AUTH}}"
+            },
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    },
+    "requests": [
+        {
+            "_id": "c7c866ad-a42e-4969-b283-4ceed9a6852f",
+            "colId": "e2673e83-cbb1-40a3-93ff-6c9bc671ec3f",
+            "containerId": "",
+            "name": "validate psa-female",
+            "url": "Patient/psa-female/$validate",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-12-14T20:26:14.687Z",
+            "modified": "2024-12-14T20:33:43.713Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "8d0aaddd-7374-49cf-b3d4-953e2afe07f3",
+            "colId": "e2673e83-cbb1-40a3-93ff-6c9bc671ec3f",
+            "containerId": "",
+            "name": "list StructureDefinition",
+            "url": "StructureDefinition",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-12-14T21:28:34.201Z",
+            "modified": "2024-12-14T21:29:00.562Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e49cb8b3-e39e-4e59-9491-47b9ad80e320",
+            "colId": "e2673e83-cbb1-40a3-93ff-6c9bc671ec3f",
+            "containerId": "",
+            "name": "Patient psa-female",
+            "url": "Patient/psa-female",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-12-14T21:30:58.053Z",
+            "modified": "2024-12-14T21:37:12.532Z",
+            "headers": []
+        },
+        {
+            "_id": "b4420d21-d5a3-43bd-8055-85afbe6561b9",
+            "colId": "e2673e83-cbb1-40a3-93ff-6c9bc671ec3f",
+            "containerId": "",
+            "name": "examine all Patient.extension",
+            "url": "Patient/heslinga-dan",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-12-14T21:39:53.713Z",
+            "modified": "2024-12-14T22:32:25.143Z",
+            "headers": []
+        }
+    ]
+}
