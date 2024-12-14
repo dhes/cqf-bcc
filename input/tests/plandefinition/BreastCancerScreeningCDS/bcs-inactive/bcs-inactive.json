@@ -1,39 +1,6 @@
 {
   "resourceType": "Patient",
   "id": "bcs-inactive",
-  "meta": {
-    "profile": [
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-    ]
-  },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-      "extension": [
-        {
-          "url": "ombCategory",
-          "valueCoding": {
-            "code": "2028-9",
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "display": "Asian"
-          }
-        }
-      ]
-    },
-    {
-      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-      "extension": [
-        {
-          "url": "ombCategory",
-          "valueCoding": {
-            "code": "2135-2",
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "display": "Hispanic or Latino"
-          }
-        }
-      ]
-    }
-  ],
   "identifier": [
     {
       "use": "usual",
