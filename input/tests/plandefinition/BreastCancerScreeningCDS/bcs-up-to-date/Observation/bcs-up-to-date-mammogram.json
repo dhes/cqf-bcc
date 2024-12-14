@@ -43,7 +43,7 @@
     "reference": "Patient/bcs-up-to-date"
   },
   "effectiveDateTime": "2022-01-02",
-  "issued": "2022-01-02T00:00:00-10:00",
+  "issued": "2022-01-02",
   "valueCodeableConcept": {
     "coding": [
       {
