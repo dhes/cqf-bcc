@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "up-to-date-mammogram.",
+  "id": "overdue-mammogram",
   "meta": {
     "extension": [
       {
@@ -40,10 +40,10 @@
     "text": "MG Breast Screening"
   },
   "subject": {
-    "reference": "Patient/bcs-up-to-date"
+    "reference": "Patient/bcs-overdue"
   },
-  "effectiveDateTime": "2022-01-02T00:00:00-10:00",
-  "issued": "2022-01-02T00:00:00-10:00",
+  "effectiveDateTime": "2022-01-01",
+  "issued": "2022-01-01T00:00:00-10:00",
   "valueCodeableConcept": {
     "coding": [
       {

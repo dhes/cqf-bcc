@@ -53,6 +53,19 @@ context Patient
 // First and foremost, are you alive? Are you an active patient? 
 // We'll keep it simple for now and require Patient.deceased = false
 
+define `1-note`:
+  ( singleton from ( Patient.extension E
+        where E.url = 'http://example.org/fhir/StructureDefinition/patient-annotation'
+    )
+  ).value.value
+
+define `2-summary`:
+  "Alive"
+  and "Active"
+  and "Woman aged 40 to 74 years inclusive" 
+  and not Excluded // with bilateral mastectomy or has breast cancer
+  and not "Mammogram within 24 months"
+
 define "Alive": 
   case 
     // when Patient.deceased = true then false //redundant
@@ -72,11 +85,11 @@ define "Age":
   // AgeInYears()
   AgeInYearsAt("Reference Date")
 
-define "aged 50 to 74 years inclusive": 
-  Age between 50 and 74 // `between` is inclusive
+define "aged 40 to 74 years inclusive": 
+  Age between 40 and 74 // `between` is inclusive
 
-define "Woman aged 50 to 74 years inclusive":
-  Woman and "aged 50 to 74 years inclusive"
+define "Woman aged 40 to 74 years inclusive":
+  Woman and "aged 40 to 74 years inclusive"
 
 define "Bilateral Mastectomy Procedure":
   [Procedure: Bx."Bilateral Mastectomy"] BilateralMastectomyPerformed // the procedure
@@ -145,7 +158,7 @@ define "Mammogram within 24 months":
 define "Due for screening mammogram": //"applicible" in the sense that this patient is eligible and due. 
   "Alive"
   and "Active"
-  and "Woman aged 50 to 74 years inclusive" 
+  and "Woman aged 40 to 74 years inclusive" 
   and not Excluded // with bilateral mastectomy or has breast cancer
   and not "Mammogram within 24 months"
 

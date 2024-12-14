@@ -1,0 +1,28 @@
+{
+  "resourceType": "Patient",
+  "id": "bcs-deceased",
+  "identifier": [
+    {
+      "system": "http://example.org/breast-cancer-screening",
+      "value": "deceased"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/patient-annotation",
+      "valueString": "Due? Not Alive => false"
+    }
+  ],
+  "name": [
+    {
+      "family": "Dormand",
+      "given": [
+        "Frances"
+      ]
+    }
+  ],
+  "birthDate": "1968-01-01",
+  "gender": "female", 
+  "active": true, 
+  "deceasedBoolean": true
+}
