@@ -28,7 +28,7 @@ code "MG Breast Screening": '24606-6' from FC."LOINC" display 'MG Breast Screeni
 code "DBT Breast - bilateral screening": '72142-3' from FC."LOINC" display 'DBT Breast - bilateral screening' // AKA 3D mammogram
 concept "Mammography screening": { "MG Breast Screening", "DBT Breast - bilateral screening" } display 'Mammography screening'
 
-// High risk breast biopsy. The first two are sonsidered equivalent. The last two have no corresponding ICD10. 
+// High risk breast biopsy. The first two are considered equivalent. The last two have no corresponding ICD10. 
 codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10'
 code "Atypical ductal hyperplasia of the breast": 'D05.10' from "ICD10" display 'Atypical ductal hyperplasia (ADH) of the breast'
 code "Atypical hyperplasia of lactiferous duct (disorder)": '427785007' from FC."SNOMEDCT" display 'Atypical hyperplasia of lactiferous duct (disorder)'
@@ -68,9 +68,8 @@ define `2-summary`:
 
 define "Alive": 
   case 
-    // when Patient.deceased = true then false //redundant
     when Patient.deceased = false then true
-    // when "Null Patient.deceased assumed to mean alive" = true and Patient.deceased is null then true // default is false. Your dead unless you the records says you are not. 
+    when Patient.deceased is null then true
     else false
   end
 
