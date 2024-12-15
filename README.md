@@ -11,24 +11,24 @@ Edges for testing
 
 |Edge|Complement|id|passes Execute CQL?|
 |---|---|---|---|
-|base||base|true|
-|Alive - |base|deceased|true|
-|Alive null |base|deceased-null|true|
-|Active - |base|inactive|true|
+|base||base|Yes|
+|Alive - |base|deceased|Yes|
+|Alive null |base|deceased-null|Yes|
+|Active - |base|inactive|Yes|
 |Active null ||NA(1)||
-|Gender - |base|male|true|
+|Gender - |base|male|Yes|
 |Gender null ||NA(1)||
 |Lower age + |base|just-old-enough||
-|Lower age - |base|too-young|true|
+|Lower age - |base|too-young|Yes|
 |Upper age + |base|just-young-enough||
-|Upper age - |base|too-old|true|
+|Upper age - |base|too-old|Yes|
 |Age null ||NA(1)||
-|Bilateral mastectomy -|base|mastectomy|true|
-|Breast cancer|base|TODO|true|
-|Overdue + ||overdue|true|
-|Overdue - ||up-to-date|true|
+|Bilateral mastectomy -|base|mastectomy|Yes|
+|Breast cancer|base|breast-cancer|Yes|
+|Overdue + ||overdue|Yes|
+|Overdue - ||up-to-date|Yes|
 
-(1) Caught in validation
+(1) Catch in validation
 
 Base-case is a 57 y.o. woman who has never had a mammogram. By definition a base case is the simplest positive case. A positive case is defined as a case that is due for intervention (in the context, a mammogram).
 is due. Typically if there is an age range, the birthday is set so that the age is near the middle of the age range. The base case is used to create the simplest negative cases, such as base case (inactive) or base case (deceased). 
