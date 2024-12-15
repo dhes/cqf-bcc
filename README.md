@@ -21,12 +21,12 @@ Edges for testing
 |Lower age + |base|just-old-enough||
 |Lower age - |base|too-young|Yes|
 |Upper age + |base|just-young-enough||
-|Upper age - |base|too-old|Yes|
+|Upper age - |c|too-old|Yes|
 |Age null ||NA(1)||
 |Bilateral mastectomy -|base|mastectomy|Yes|
 |Breast cancer|base|breast-cancer|Yes|
-|Overdue + ||overdue|Yes|
-|Overdue - ||up-to-date|Yes|
+|Overdue + |base + old mammgram|overdue|Yes|
+|Overdue - |Overdue|up-to-date|Yes|
 
 (1) Catch in validation
 
