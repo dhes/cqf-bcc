@@ -10,7 +10,7 @@
   "extension": [
     {
       "url": "http://example.org/fhir/StructureDefinition/patient-annotation",
-      "valueString": "Due? Mammogram within 24 months => false"
+      "valueString": "Due? Mammogram within 2 years => false"
     }
   ],
   "name": [
