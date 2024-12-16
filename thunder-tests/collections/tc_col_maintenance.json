@@ -1,0 +1,42 @@
+{
+    "_id": "14156484-3b1e-4fc5-96e7-d044ddc915c7",
+    "colName": "maintenance",
+    "created": "2024-12-15T20:47:26.752Z",
+    "sortNum": 30000,
+    "folders": [],
+    "settings": {
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": "Basic {{HAPI_FHIR_AUTH}}"
+            },
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    },
+    "requests": [
+        {
+            "_id": "b842e36f-6166-40ab-8af5-00352203112a",
+            "colId": "14156484-3b1e-4fc5-96e7-d044ddc915c7",
+            "containerId": "",
+            "name": "update everything",
+            "url": "",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-12-15T20:47:26.759Z",
+            "modified": "2024-12-15T20:55:39.876Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/BreastCancerScreeningCDS/BreastCancerScreeningCDS-bundle.json"
+            }
+        }
+    ]
+}

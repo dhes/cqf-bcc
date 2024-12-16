@@ -6,47 +6,21 @@
     "folders": [],
     "requests": [
         {
-            "_id": "d3b31844-d632-4f4d-83dc-22da81598453",
-            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
-            "containerId": "",
-            "name": "POST PlanDefinition Bundle",
-            "url": "http://localhost:8080/fhir",
-            "method": "POST",
-            "sortNum": 10000,
-            "created": "2024-03-24T20:13:28.247Z",
-            "modified": "2024-04-02T18:24:07.574Z",
-            "headers": [
-                {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                }
-            ],
-            "params": [],
-            "body": {
-                "type": "binary",
-                "raw": "",
-                "form": [],
-                "binary": "../bundles/plandefinition/BreastCancerScreeningCDS/BreastCancerScreeningCDS-bundle.json"
-            },
-            "tests": []
-        },
-        {
             "_id": "8705a037-ecc8-453e-b177-a89998966ed3",
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test overdue",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-24T20:13:28.249Z",
-            "modified": "2024-03-24T20:13:28.249Z",
+            "modified": "2024-12-15T20:59:01.047Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-overdue\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -76,18 +50,24 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test up-to-date",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply?subject=Patient/bcs-overdue",
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-03-24T20:13:28.250Z",
-            "modified": "2024-03-24T20:13:28.250Z",
+            "modified": "2024-12-15T21:01:23.973Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/bcs-overdue",
+                    "isPath": false
+                }
+            ],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-up-to-date\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -117,18 +97,17 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test too-young",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 50000,
             "created": "2024-03-24T20:13:28.251Z",
-            "modified": "2024-03-24T20:13:28.251Z",
+            "modified": "2024-12-15T20:58:19.993Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-too-young\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -158,18 +137,17 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test mastectomy",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 45000,
             "created": "2024-03-24T20:13:28.252Z",
-            "modified": "2024-03-24T20:13:28.252Z",
+            "modified": "2024-12-15T20:58:30.102Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-mastectomy\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -199,18 +177,17 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test male",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 42500,
             "created": "2024-03-24T20:13:28.253Z",
-            "modified": "2024-03-24T20:13:28.253Z",
+            "modified": "2024-12-15T20:58:35.905Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-male\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -240,18 +217,17 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test inactive",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 41250,
             "created": "2024-03-24T20:13:28.254Z",
-            "modified": "2024-03-24T20:13:28.254Z",
+            "modified": "2024-12-15T20:58:41.300Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-inactive\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -281,18 +257,17 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test deceased",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 40625,
             "created": "2024-03-24T20:13:28.255Z",
-            "modified": "2024-03-24T20:13:28.255Z",
+            "modified": "2024-12-15T20:58:46.762Z",
             "headers": [
                 {
                     "name": "Content-type",
                     "value": "application/fhir+json"
                 }
             ],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-deceased\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
@@ -322,11 +297,11 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "exists too-young",
-            "url": "Patient/bcs-too-young",
+            "url": "Patient/bcs-overdue/$everything",
             "method": "GET",
             "sortNum": 60000,
             "created": "2024-12-13T22:32:43.055Z",
-            "modified": "2024-12-13T22:34:04.142Z",
+            "modified": "2024-12-16T00:15:37.364Z",
             "headers": [
                 {
                     "name": "Content-type",

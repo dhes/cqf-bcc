@@ -43,3 +43,4 @@ _updatePublisher.sh
 bundles/
 input/tests/results/*
 .env
+bundles/

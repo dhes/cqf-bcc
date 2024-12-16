@@ -21,8 +21,8 @@ so it will run on the current implementations.
 // parameter "Null Patient.deceased assumed to mean alive" Boolean default false 
 
 parameter "Reference Date" Date 
-  default  @2024-01-01// for testing with ExecuteCQL
-  // default Today() // for testing within a CQL Testing Framework project
+  // default  @2024-01-01// for testing with ExecuteCQL
+  default Today() // for testing within a CQL Testing Framework project
 
 code "MG Breast Screening": '24606-6' from FC."LOINC" display 'MG Breast Screening' // AKA 2D mammogram
 code "DBT Breast - bilateral screening": '72142-3' from FC."LOINC" display 'DBT Breast - bilateral screening' // AKA 3D mammogram
@@ -82,7 +82,7 @@ define Woman:
 
 define "Age":
   // AgeInYears()
-  AgeInYearsAt("Reference Date")
+  AgeInYearsAt("Reference Date" as Date)
 
 define "aged 40 to 74 years inclusive": 
   Age between 40 and 74 // `between` is inclusive
@@ -100,6 +100,7 @@ define "Bilateral Mastectomy Diagnosis":
 
 define "History of bilateral mastectomy":
   "Bilateral Mastectomy Performed"
+
 define "Bilateral Mastectomy Performed":
 	exists "Bilateral Mastectomy Diagnosis"
 	or exists "Bilateral Mastectomy Procedure"
@@ -134,27 +135,29 @@ define "Mammography Performed":
 // where O.status = 'final'
 // and O.code ~ "Mammography screening"
 
-define function MostRecent(observations List<Observation>, asOf DateTime):
-  First(
+define function MostRecent(observations List<Observation>, asOf Date):
+  Last(
     observations O
-      sort by start of FC.ToInterval(effective)
+      // where O.effective is FHIR.dateTime
+        // and O.effective <= asOf
+    sort by effective
   )
 
 define "Most recent mammogram":
-  MostRecent("Mammography Performed", "Reference Date")
+  MostRecent("Mammography Performed", "Reference Date" as Date)
 
 define "Most recent mammogram date":
   date from "Most recent mammogram".effective
 
 define "Months elapsed":
-  months between "Most recent mammogram date" and "Reference Date"
+  months between "Most recent mammogram date" and date from "Reference Date"
 
 define "Mammogram within 24 months":
   exists "Mammography Performed" P
   // where P.issued >= ("Reference Date" - 2 years)
   where "Months elapsed" <= 23
 
-define "Due for screening mammogram": //"applicible" in the sense that this patient is eligible and due. 
+define "Due for screening mammogram": //"applicable" in the sense that this patient is eligible and due. 
   "Alive"
   and "Active"
   and "Woman aged 40 to 74 years inclusive" 
