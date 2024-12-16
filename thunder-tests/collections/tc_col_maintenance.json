@@ -37,6 +37,18 @@
                 "form": [],
                 "binary": "../bundles/plandefinition/BreastCancerScreeningCDS/BreastCancerScreeningCDS-bundle.json"
             }
+        },
+        {
+            "_id": "85af1c1e-39e3-40da-bbeb-db754f0d6dc7",
+            "colId": "14156484-3b1e-4fc5-96e7-d044ddc915c7",
+            "containerId": "",
+            "name": "delete something",
+            "url": "Encounter/too-young-encounter",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2024-12-16T16:30:31.889Z",
+            "modified": "2024-12-16T20:11:09.934Z",
+            "headers": []
         }
     ]
 }

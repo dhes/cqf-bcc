@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-24T20:13:28.249Z",
-            "modified": "2024-12-15T20:59:01.047Z",
+            "modified": "2024-12-16T00:53:22.255Z",
             "headers": [
                 {
                     "name": "Content-type",
@@ -50,11 +50,11 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test up-to-date",
-            "url": "http://localhost:8080/fhir/PlanDefinition/BreastCancerScreeningCDS/$apply?subject=Patient/bcs-overdue",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply?subject=Patient/bcs-overdue",
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-03-24T20:13:28.250Z",
-            "modified": "2024-12-15T21:01:23.973Z",
+            "modified": "2024-12-16T01:23:51.112Z",
             "headers": [
                 {
                     "name": "Content-type",
@@ -217,11 +217,11 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "test inactive",
-            "url": "BreastCancerScreeningCDS/$apply",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
             "method": "POST",
             "sortNum": 41250,
             "created": "2024-03-24T20:13:28.254Z",
-            "modified": "2024-12-15T20:58:41.300Z",
+            "modified": "2024-12-16T01:28:12.825Z",
             "headers": [
                 {
                     "name": "Content-type",
@@ -297,11 +297,286 @@
             "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
             "containerId": "",
             "name": "exists too-young",
-            "url": "Patient/bcs-overdue/$everything",
+            "url": "Patient/bcs-too-young/$everything",
             "method": "GET",
-            "sortNum": 60000,
+            "sortNum": 15000,
             "created": "2024-12-13T22:32:43.055Z",
-            "modified": "2024-12-16T00:15:37.364Z",
+            "modified": "2024-12-16T05:46:32.748Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "a446cdee-51fe-4a06-add1-da282c7d947b",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test just-old-enough",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-12-16T01:32:16.433Z",
+            "modified": "2024-12-16T01:32:41.226Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-just-old-enough\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e382902b-1644-42f2-a4fa-3fcdb4ab1c5c",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test just-young-enough",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-12-16T01:33:07.569Z",
+            "modified": "2024-12-16T01:33:34.886Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-just-young-enough\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "78cbc56b-75f3-4960-9ff5-facc6be754b3",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test too-old",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-12-16T01:34:03.829Z",
+            "modified": "2024-12-16T01:34:39.747Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-too-old\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "891839ad-3a5a-4b3f-b781-d4cb378ef391",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test base",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-12-16T01:35:25.114Z",
+            "modified": "2024-12-16T01:35:40.668Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-base\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "59d51fef-7c7a-43aa-9425-ba8a60bbeed3",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test deceased-null",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-12-16T01:36:39.630Z",
+            "modified": "2024-12-16T01:37:01.240Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-deceased-null\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "4c9f557f-9fb2-42e6-9839-022c357a3b43",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test breast-cancer",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-12-16T01:38:02.213Z",
+            "modified": "2024-12-16T01:38:20.105Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-breast-cancer\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference Date\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let success = tc.response.json.contained && tc.response.json.contained[0] && tc.response.json.contained[0].action == null;",
+                            "tc.test(\"Action Element is null\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "3c92bb38-d504-4e02-9ebf-8db98a4b6dfe",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists too-old",
+            "url": "Patient/bcs-too-old/$everything",
+            "method": "GET",
+            "sortNum": 22500,
+            "created": "2024-12-16T05:45:40.794Z",
+            "modified": "2024-12-16T05:46:44.627Z",
             "headers": [
                 {
                     "name": "Content-type",

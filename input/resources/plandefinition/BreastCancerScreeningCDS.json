@@ -4,7 +4,7 @@
   "name": "BreastCancerScreeningCDS",
   "title": "Breast cancer screening",
   "description": "The U.S. Preventive Services Task Force (2016) recommends screening for Breast cancer starting at age 50 years and continuing until age 75 years. ",
-  "status": "draft",
+  "status": "active",
   "date": "2024-02-08",
   "experimental": true,
   "meta": {
