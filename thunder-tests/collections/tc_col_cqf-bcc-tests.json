@@ -1,0 +1,985 @@
+{
+    "_id": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+    "colName": "cqf-bcc tests",
+    "created": "2024-03-24T20:13:28.244Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8705a037-ecc8-453e-b177-a89998966ed3",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test overdue",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29879.2,
+            "created": "2024-03-24T20:13:28.249Z",
+            "modified": "2024-12-17T16:45:02.627Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-overdue\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "// positive test case",
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !!requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome. RequestGroup.action is present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c15df452-4567-4668-ba77-c675051680ad",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test up-to-date",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply?subject=Patient/bcs-overdue",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-24T20:13:28.250Z",
+            "modified": "2024-12-17T16:36:47.508Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/bcs-overdue",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-up-to-date\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c727249e-905f-4c58-8fdf-37374b9d0a32",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test too-young",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29824.3,
+            "created": "2024-03-24T20:13:28.251Z",
+            "modified": "2024-12-17T16:36:03.808Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-too-young\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7e1a3afe-a80d-4e8d-9bab-c4458d92ff24",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test mastectomy",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29882.8,
+            "created": "2024-03-24T20:13:28.252Z",
+            "modified": "2024-12-17T16:36:33.795Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-mastectomy\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7b60fd68-c719-462b-bdfa-1b9cb9480291",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test male",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29765.7,
+            "created": "2024-03-24T20:13:28.253Z",
+            "modified": "2024-12-17T16:35:56.589Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-male\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "4f53050c-a13e-4462-8d47-ee98a3f0f2f6",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test inactive",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29531.3,
+            "created": "2024-03-24T20:13:28.254Z",
+            "modified": "2024-12-17T16:35:50.915Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-inactive\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "21c4951c-fba0-4d31-8f67-d7c81654c419",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test deceased",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29062.5,
+            "created": "2024-03-24T20:13:28.255Z",
+            "modified": "2024-12-17T16:35:30.812Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-deceased\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "action"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "46b36295-a766-4d3d-8449-a65371e29b88",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists too-young",
+            "url": "Patient/bcs-too-young/$everything",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-12-13T22:32:43.055Z",
+            "modified": "2024-12-17T16:28:52.727Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "a446cdee-51fe-4a06-add1-da282c7d947b",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test just-old-enough",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29853.5,
+            "created": "2024-12-16T01:32:16.433Z",
+            "modified": "2024-12-17T16:44:47.816Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-just-old-enough\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "// positive test case",
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !!requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome. RequestGroup.action is present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e382902b-1644-42f2-a4fa-3fcdb4ab1c5c",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test just-young-enough",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29868.2,
+            "created": "2024-12-16T01:33:07.569Z",
+            "modified": "2024-12-17T16:44:53.866Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-just-young-enough\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "// positive test case",
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !!requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome. RequestGroup.action is present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "78cbc56b-75f3-4960-9ff5-facc6be754b3",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test too-old",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29875.5,
+            "created": "2024-12-16T01:34:03.829Z",
+            "modified": "2024-12-17T16:36:24.608Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-too-old\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "891839ad-3a5a-4b3f-b781-d4cb378ef391",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test base",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 28125,
+            "created": "2024-12-16T01:35:25.114Z",
+            "modified": "2024-12-17T16:43:59.090Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-base\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "// positive test case",
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !!requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome. RequestGroup.action is present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "59d51fef-7c7a-43aa-9425-ba8a60bbeed3",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test deceased-null",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 28593.8,
+            "created": "2024-12-16T01:36:39.630Z",
+            "modified": "2024-12-17T16:44:27.439Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-deceased-null\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "// positive test case",
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !!requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome. RequestGroup.action is present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "4c9f557f-9fb2-42e6-9839-022c357a3b43",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "test breast-cancer",
+            "url": "PlanDefinition/BreastCancerScreeningCDS/$apply",
+            "method": "POST",
+            "sortNum": 29941.4,
+            "created": "2024-12-16T01:38:02.213Z",
+            "modified": "2024-12-17T16:36:39.778Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/bcs-breast-cancer\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Reference dateTime\",\n            \"valueDateTime\": \"2024-01-01\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let containsOperationOutcome = tc.response.json.contained &&",
+                            "                               tc.response.json.contained.some(item => item.resourceType === \"OperationOutcome\");",
+                            "",
+                            "let requestGroupWithAction = tc.response.json.contained &&",
+                            "                             tc.response.json.contained.find(item => ",
+                            "                                 item.resourceType === \"RequestGroup\" && item.action);",
+                            "",
+                            "let success = !containsOperationOutcome && !requestGroupWithAction;",
+                            "",
+                            "tc.test(\"No OperationOutcome and no RequestGroup with action attribute present\", success);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "3c92bb38-d504-4e02-9ebf-8db98a4b6dfe",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists too-old",
+            "url": "Patient/bcs-too-old/$everything",
+            "method": "GET",
+            "sortNum": 22500,
+            "created": "2024-12-16T05:45:40.794Z",
+            "modified": "2024-12-17T16:29:22.358Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "514d6c88-1bdc-490c-a03d-77aaa03fef86",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists base",
+            "url": "Patient/bcs-base/$everything",
+            "method": "GET",
+            "sortNum": 7500,
+            "created": "2024-12-17T00:12:04.591Z",
+            "modified": "2024-12-17T16:27:29.789Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "96ca26ce-ff90-4301-9c8d-03be56c0850b",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists male",
+            "url": "Patient/bcs-male/$everything",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2024-12-17T00:13:12.370Z",
+            "modified": "2024-12-17T16:28:43.869Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "de37cba4-0894-40cb-bc12-65cf7bc9da30",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists inactive",
+            "url": "Patient/bcs-inactive/$everything",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2024-12-17T00:13:15.032Z",
+            "modified": "2024-12-17T16:28:33.899Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "c361e0ef-de94-4c1f-b546-b3bd6bd352df",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists deceased",
+            "url": "Patient/bcs-deceased/$everything",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2024-12-17T00:13:17.573Z",
+            "modified": "2024-12-17T16:28:09.668Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "c3152ccd-ce2b-4771-8970-a6139adcbdea",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists deceased-null",
+            "url": "Patient/bcs-deceased-null/$everything",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2024-12-17T00:15:35.890Z",
+            "modified": "2024-12-17T16:27:55.161Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "3871d1ef-6e90-4a57-ba95-94882e432128",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists just-old-enough",
+            "url": "Patient/bcs-just-old-enough/$everything",
+            "method": "GET",
+            "sortNum": 18750,
+            "created": "2024-12-17T00:17:05.770Z",
+            "modified": "2024-12-17T16:29:01.214Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "edd743bd-8351-44f4-af4e-c32fee4b12f0",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists just-young-enough",
+            "url": "Patient/bcs-just-young-enough/$everything",
+            "method": "GET",
+            "sortNum": 28750,
+            "created": "2024-12-17T00:17:41.591Z",
+            "modified": "2024-12-17T16:29:14.603Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "b63da6e6-6148-427a-96b1-60e4e6a6ea0f",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists mastectomy",
+            "url": "Patient/bcs-mastectomy/$everything",
+            "method": "GET",
+            "sortNum": 27187.5,
+            "created": "2024-12-17T00:18:25.191Z",
+            "modified": "2024-12-17T16:29:28.244Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "3def72fe-b516-4c3c-81e9-9da1715b8835",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists breast-cancer",
+            "url": "Patient/bcs-breast-cancer/$everything",
+            "method": "GET",
+            "sortNum": 37187.5,
+            "created": "2024-12-17T00:18:54.212Z",
+            "modified": "2024-12-17T16:29:36.201Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "6d8c170f-4a89-4322-b6c1-aa74bc4f6393",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists overdue",
+            "url": "Patient/bcs-overdue/$everything",
+            "method": "GET",
+            "sortNum": 47187.5,
+            "created": "2024-12-17T00:19:25.910Z",
+            "modified": "2024-12-17T16:29:43.652Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "2ac5a1b8-da96-4b51-b569-ff7500a7895b",
+            "colId": "3faeb05b-8fd2-45e2-9c22-a26bc3b77853",
+            "containerId": "",
+            "name": "exists up-to-date",
+            "url": "Patient/bcs-up-to-date/$everything",
+            "method": "GET",
+            "sortNum": 37656.3,
+            "created": "2024-12-17T00:19:28.800Z",
+            "modified": "2024-12-17T16:29:51.646Z",
+            "headers": [
+                {
+                    "name": "Content-type",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": "Basic {{HAPI_FHIR_AUTH}}"
+            },
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}

@@ -97,6 +97,32 @@
         },
         {
           "description": "Mammogram not ordered"
+        },
+        {
+          "title": "Age",
+          "description": "Age",
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": {
+                "language": "text/cql-identifier",
+                "expression": "AgeToString"
+              }
+            }
+          ]
+        },
+        {
+          "title": "aged 40 to 74 years inclusive",
+          "description": "aged 40 to 74 years inclusive",
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": {
+                "language": "text/cql-identifier",
+                "expression": "aged 40 to 74 years inclusive ToString"
+              }
+            }
+          ]
         }
       ]
     }

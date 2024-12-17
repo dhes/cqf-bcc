@@ -86,8 +86,14 @@ define Age:
   // AgeInYears()
   AgeInYearsAt(ReferenceDate)
 
+define AgeToString:
+  ToString(Age)
+
 define "aged 40 to 74 years inclusive": 
   Age between 40 and 74 // `between` is inclusive
+
+define "aged 40 to 74 years inclusive ToString": 
+  ToString("aged 40 to 74 years inclusive")
 
 define "Woman aged 40 to 74 years inclusive":
   Woman and "aged 40 to 74 years inclusive"
