@@ -20,10 +20,6 @@ so it will run on the current implementations.
 
 // parameter "Null Patient.deceased assumed to mean alive" Boolean default false 
 
-parameter "Reference dateTime" DateTime
-  // default  @2024-01-01// for testing with ExecuteCQL
-  default Today() // for testing within a CQL Testing Framework project
-
 code "MG Breast Screening": '24606-6' from FC."LOINC" display 'MG Breast Screening' // AKA 2D mammogram
 code "DBT Breast - bilateral screening": '72142-3' from FC."LOINC" display 'DBT Breast - bilateral screening' // AKA 3D mammogram
 concept "Mammography screening": { "MG Breast Screening", "DBT Breast - bilateral screening" } display 'Mammography screening'
@@ -47,6 +43,10 @@ concept "Genetic susceptibility": {
 	"Genetic susceptibility to malignant neoplasm of breast",
 	"Hereditary breast and ovarian cancer syndrome (disorder)"
 }
+
+parameter "Reference dateTime" DateTime
+  // default  @2024-01-01// for testing with ExecuteCQL
+  default Today() // for testing within a CQL Testing Framework project
 
 context Patient
 
